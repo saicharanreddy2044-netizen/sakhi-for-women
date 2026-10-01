@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Akshar Digi | అక్షర్ డిజి</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Noto+Sans+Gurmukhi:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Oriya:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Noto+Sans+Thai&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        "Noto Sans",
+        "Noto Sans Telugu",
+        "Noto Sans Devanagari",
+        sans-serif;
+
+    color:#263238;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    background:#f7fbf8;
+}
+
+
+/* =====================================================
+   PLEASANT ANIMATED BACKGROUND
+===================================================== */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f9fcfa 0%,
+            #f5f9ff 45%,
+            #fff9f4 100%
+        );
+}
+
+
+/* Soft moving light */
+
+.glow{
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    filter:blur(70px);
+
+    opacity:.32;
+
+    animation:moveGlow 18s ease-in-out infinite;
+}
+
+.glow.one{
+    background:#b9e7d2;
+    left:-150px;
+    top:-100px;
+}
+
+.glow.two{
+    background:#d9c9f4;
+    right:-150px;
+    top:15%;
+    animation-delay:4s;
+}
+
+.glow.three{
+    background:#f8d7c1;
+    left:30%;
+    bottom:-200px;
+    animation-delay:8s;
+}
+
+@keyframes moveGlow{
+
+    0%,100%{
+        transform:translate(0,0) scale(1);
+    }
+
+    50%{
+        transform:translate(40px,-35px) scale(1.1);
+    }
+}
+
+
+/* Floating leaves */
+
+.leaf{
+    position:absolute;
+
+    opacity:.15;
+
+    font-size:34px;
+
+    animation:
+        floatLeaf 14s ease-in-out infinite;
+}
+
+.leaf1{
+    left:8%;
+    top:22%;
+}
+
+.leaf2{
+    left:18%;
+    bottom:15%;
+    animation-delay:3s;
+}
+
+.leaf3{
+    right:12%;
+    top:28%;
+    animation-delay:6s;
+}
+
+.leaf4{
+    right:25%;
+    bottom:12%;
+    animation-delay:2s;
+}
+
+@keyframes floatLeaf{
+
+    0%,100%{
+        transform:translateY(0) rotate(0);
+    }
+
+    50%{
+        transform:translateY(-30px) rotate(15deg);
+    }
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:14px 6%;
+
+    background:
+        rgba(255,255,255,.82);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid rgba(50,80,60,.08);
+}
+
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+
+.logo-icon{
+
+    width:55px;
+    height:55px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #497c67,
+            #7d5aa6
+        );
+
+    color:white;
+
+    font-size:26px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(70,100,85,.2);
+}
+
+
+.logo h1{
+
+    font-size:26px;
+
+    color:#315b4b;
+
+}
+
+
+.logo p{
+
+    font-size:12px;
+
+    color:#718078;
+
+}
+
+
+.header-right{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+}
+
+
+.language-select{
+
+    padding:
+        11px 15px;
+
+    border:
+        1px solid #dbe5df;
+
+    border-radius:25px;
+
+    background:white;
+
+    color:#365548;
+
+    font-family:inherit;
+
+    outline:none;
+
+    cursor:pointer;
+
+}
+
+
+.speak-button{
+
+    border:none;
+
+    border-radius:25px;
+
+    padding:
+        11px 17px;
+
+    color:white;
+
+    background:
+        #527c69;
+
+    font-family:inherit;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:
+        70px 25px 45px;
+
+    display:grid;
+
+    grid-template-columns:
+        .85fr 1.25fr;
+
+    gap:60px;
+
+    align-items:center;
+
+}
+
+
+.hero-image{
+
+    display:flex;
+
+    justify-content:center;
+
+    position:relative;
+
+}
+
+
+.woman{
+
+    width:330px;
+    height:330px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:170px;
+
+    border-radius:
+        52% 48% 55% 45%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e4f3e9,
+            #e9def6
+        );
+
+    box-shadow:
+        0 25px 70px
+        rgba(80,90,90,.13);
+
+    animation:
+        womanFloat 5s ease-in-out infinite;
+}
+
+@keyframes womanFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+
+.hero-tag{
+
+    position:absolute;
+
+    background:
+        rgba(255,255,255,.9);
+
+    padding:
+        11px 16px;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(50,70,60,.1);
+
+    font-size:13px;
+}
+
+
+.tag1{
+    top:20px;
+    left:0;
+}
+
+.tag2{
+    bottom:15px;
+    right:0;
+}
+
+
+.hero h2{
+
+    font-size:
+        clamp(35px,5vw,57px);
+
+    line-height:1.25;
+
+    color:#315a4c;
+
+    margin-bottom:20px;
+
+}
+
+
+.hero h2 span{
+
+    color:#8b5a9f;
+
+}
+
+
+.hero-description{
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    color:#65736c;
+
+    margin-bottom:25px;
+
+}
+
+
+.trust{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:9px;
+
+}
+
+
+.trust span{
+
+    background:
+        rgba(255,255,255,.8);
+
+    border:
+        1px solid #e1eae5;
+
+    padding:
+        9px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}
+
+
+/* =====================================================
+   MAIN ASSISTANT
+===================================================== */
+
+.main{
+
+    max-width:1050px;
+
+    margin:auto;
+
+    padding:20px;
+
+}
+
+
+.assistant{
+
+    background:
+        rgba(255,255,255,.88);
+
+    backdrop-filter:
+        blur(18px);
+
+    border:
+        1px solid rgba(255,255,255,.9);
+
+    border-radius:30px;
+
+    padding:38px;
+
+    box-shadow:
+        0 20px 70px
+        rgba(60,80,70,.10);
+}
+
+
+.assistant-heading{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+
+.assistant-heading h3{
+
+    font-size:28px;
+
+    color:#345c4d;
+
+    margin-bottom:7px;
+
+}
+
+
+.assistant-heading p{
+
+    color:#78847e;
+
+}
+
+
+.input{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:white;
+
+    border:
+        2px solid #dfe9e3;
+
+    padding:
+        7px 8px 7px 18px;
+
+    border-radius:20px;
+
+}
+
+
+.input input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    font-family:inherit;
+
+    font-size:16px;
+
+    background:transparent;
+
+    color:#37463f;
+
+}
+
+
+.mic{
+
+    width:54px;
+    height:54px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#527c69;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+}
+
+
+.mic.listening{
+
+    background:#c46a82;
+
+    animation:pulse 1.2s infinite;
+
+}
+
+
+@keyframes pulse{
+
+    0%{
+        box-shadow:
+            0 0 0 0
+            rgba(196,106,130,.5);
+    }
+
+    70%{
+        box-shadow:
+            0 0 0 18px
+            rgba(196,106,130,0);
+    }
+
+    100%{
+        box-shadow:
+            0 0 0 0
+            rgba(196,106,130,0);
+    }
+}
+
+
+.ask{
+
+    width:100%;
+
+    margin-top:14px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:17px;
+
+    color:white;
+
+    font-family:inherit;
+
+    font-size:17px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #527c69,
+            #76609b
+        );
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+.ask:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+.status{
+
+    text-align:center;
+
+    min-height:25px;
+
+    padding-top:10px;
+
+    color:#9a6379;
+
+    font-size:13px;
+
+}
+
+
+/* =====================================================
+   QUICK SERVICES
+===================================================== */
+
+.quick-title{
+
+    text-align:center;
+
+    margin:
+        50px 0 20px;
+
+}
+
+
+.quick-title h3{
+
+    font-size:27px;
+
+    color:#345c4d;
+
+}
+
+
+.quick-title p{
+
+    color:#7a867f;
+
+    margin-top:5px;
+
+}
+
+
+.quick-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:16px;
+
+}
+
+
+.quick{
+
+    border:none;
+
+    background:
+        rgba(255,255,255,.85);
+
+    padding:25px 12px;
+
+    border-radius:22px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(60,80,70,.07);
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+    transition:.3s;
+
+    color:#40574d;
+
+}
+
+
+.quick:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(60,80,70,.13);
+}
+
+
+.quick-icon{
+
+    width:58px;
+    height:58px;
+
+    margin:
+        0 auto 12px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    font-size:27px;
+
+}
+
+
+.q1{
+    background:#e9f6ec;
+}
+
+.q2{
+    background:#fff2dc;
+}
+
+.q3{
+    background:#e9f0fa;
+}
+
+.q4{
+    background:#f5eaf6;
+}
+
+
+.quick h4{
+
+    font-size:15px;
+
+    margin-bottom:5px;
+
+}
+
+
+.quick p{
+
+    font-size:12px;
+
+    color:#89928d;
+
+}
+
+
+/* =====================================================
+   RESPONSE
+===================================================== */
+
+.response{
+
+    display:none;
+
+    margin-top:28px;
+
+    padding:26px;
+
+    border-radius:23px;
+
+    background:
+        #f8fbf9;
+
+    border:
+        1px solid #dce8e0;
+
+}
+
+
+.response.show{
+
+    display:block;
+
+    animation:
+        appear .45s ease;
+}
+
+
+@keyframes appear{
+
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+.response-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:18px;
+
+}
+
+
+.ai{
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#6e628d;
+
+    color:white;
+
+}
+
+
+.response-content{
+
+    line-height:1.9;
+
+    color:#56635d;
+
+}
+
+
+.step{
+
+    display:flex;
+
+    gap:12px;
+
+    margin:
+        12px 0;
+
+    padding:14px;
+
+    background:white;
+
+    border-radius:14px;
+
+}
+
+
+.number{
+
+    min-width:34px;
+    height:34px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#527c69;
+
+    color:white;
+
+    border-radius:50%;
+
+}
+
+
+.listen{
+
+    margin-top:15px;
+
+    border:none;
+
+    border-radius:20px;
+
+    padding:
+        10px 17px;
+
+    background:#e7f1eb;
+
+    color:#446756;
+
+    font-family:inherit;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about{
+
+    max-width:1050px;
+
+    margin:
+        65px auto;
+
+    padding:20px;
+
+}
+
+
+.about-box{
+
+    padding:42px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #527c69,
+            #74638f
+        );
+
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.about-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.08);
+
+    right:-100px;
+    top:-120px;
+
+}
+
+
+.about-box h3{
+
+    font-size:29px;
+
+    margin-bottom:14px;
+
+}
+
+
+.about-box p{
+
+    line-height:1.9;
+
+    color:#eef6f1;
+
+}
+
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+
+.feature{
+
+    padding:17px;
+
+    border-radius:17px;
+
+    background:
+        rgba(255,255,255,.10);
+
+}
+
+
+.feature strong{
+
+    display:block;
+
+    margin-bottom:5px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    margin-top:70px;
+
+    padding:
+        32px 20px;
+
+    text-align:center;
+
+    background:
+        rgba(255,255,255,.75);
+
+    border-top:
+        1px solid #e3e9e5;
+
+    color:#75817b;
+
+}
+
+
+footer strong{
+
+    color:#466c5b;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:850px){
+
+    .hero{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+    .woman{
+
+        width:270px;
+        height:270px;
+
+        font-size:135px;
+
+    }
+
+    .trust{
+
+        justify-content:center;
+
+    }
+
+    .quick-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+    .features{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+@media(max-width:550px){
+
+    header{
+
+        padding:
+            11px 15px;
+
+    }
+
+    .logo h1{
+
+        font-size:21px;
+
+    }
+
+    .logo p{
+
+        display:none;
+
+    }
+
+    .speak-button{
+
+        padding:
+            9px 12px;
+
+    }
+
+    .language-select{
+
+        max-width:120px;
+
+    }
+
+    .hero{
+
+        padding-top:40px;
+
+    }
+
+    .hero h2{
+
+        font-size:34px;
+
+    }
+
+    .hero-description{
+
+        font-size:15px;
+
+    }
+
+    .assistant{
+
+        padding:22px 15px;
+
+    }
+
+    .quick-grid{
+
+        gap:9px;
+
+    }
+
+    .quick{
+
+        padding:
+            19px 7px;
+
+    }
+
+    .about-box{
+
+        padding:28px 21px;
+
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background">
+
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+    <div class="glow three"></div>
+
+    <div class="leaf leaf1">🌿</div>
+    <div class="leaf leaf2">🍃</div>
+    <div class="leaf leaf3">🌱</div>
+    <div class="leaf leaf4">✿</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            ✦
+        </div>
+
+        <div>
+
+            <h1>
+                Akshar Digi
+            </h1>
+
+            <p id="tagline">
+                అక్షరం నుంచి అవకాశాల వరకు
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-right">
+
+        <select
+            id="language"
+            class="language-select"
+            onchange="changeLanguage()">
+
+            <option value="te-IN">తెలుగు</option>
+            <option value="hi-IN">हिन्दी</option>
+            <option value="ta-IN">தமிழ்</option>
+            <option value="kn-IN">ಕನ್ನಡ</option>
+            <option value="ml-IN">മലയാളം</option>
+            <option value="mr-IN">मराठी</option>
+            <option value="gu-IN">ગુજરાતી</option>
+            <option value="bn-IN">বাংলা</option>
+            <option value="pa-IN">ਪੰਜਾਬੀ</option>
+            <option value="or-IN">ଓଡ଼ିଆ</option>
+            <option value="as-IN">অসমীয়া</option>
+            <option value="ur-IN">اردو</option>
+            <option value="ne-IN">नेपाली</option>
+            <option value="kok-IN">कोंकणी</option>
+            <option value="mai-IN">मैथिली</option>
+            <option value="doi-IN">डोगरी</option>
+            <option value="mni-IN">মৈতৈলোন্</option>
+            <option value="ks-IN">कॉशुर / کٲشُر</option>
+            <option value="sat-IN">ᱥᱟᱱᱛᱟᱲᱤ</option>
+            <option value="sd-IN">سنڌي</option>
+            <option value="sa-IN">संस्कृतम्</option>
+            <option value="brx-IN">बड़ो</option>
+
+        </select>
+
+
+        <button
+            class="speak-button"
+            onclick="speakWelcome()">
+
+            🔊 <span id="listenText">
+                వినండి
+            </span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+
+    <div class="hero-image">
+
+        <div class="woman">
+            👩🏽
+        </div>
+
+        <div class="hero-tag tag1">
+            🌸 <span id="womenTag">మహిళల కోసం</span>
+        </div>
+
+        <div class="hero-tag tag2">
+            🎙️ <span id="voiceTag">మీ భాషలో మాట్లాడండి</span>
+        </div>
+
+    </div>
+
+
+
+    <div>
+
+        <h2 id="heroTitle">
+
+            మీకు కావాల్సిన
+            <span>ప్రభుత్వ సహాయం</span>
+            ఇప్పుడు సులభంగా!
+
+        </h2>
+
+
+        <p
+            id="heroDescription"
+            class="hero-description">
+
+            Akshar Digi మీకు ప్రభుత్వ పథకాలు,
+            ఉద్యోగాలు, విద్య మరియు ఆరోగ్య సేవలను
+            మీ భాషలో సులభంగా అర్థం చేసుకోవడానికి
+            సహాయం చేస్తుంది.
+
+        </p>
+
+
+        <div class="trust">
+
+            <span id="trust1">
+                🎙️ వాయిస్ సహాయం
+            </span>
+
+            <span id="trust2">
+                💬 సులభమైన భాష
+            </span>
+
+            <span id="trust3">
+                👩 అందరికీ
+            </span>
+
+            <span id="trust4">
+                📱 మొబైల్‌లో సులభం
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ASSISTANT
+===================================================== -->
+
+<section class="main">
+
+
+    <div class="assistant">
+
+        <div class="assistant-heading">
+
+            <h3 id="assistantTitle">
+                మీకు ఏ సహాయం కావాలి?
+            </h3>
+
+            <p id="assistantSubtitle">
+                మీ భాషలో మాట్లాడండి లేదా టైప్ చేయండి
+            </p>
+
+        </div>
+
+
+        <div class="input">
+
+            <input
+                id="question"
+                type="text"
+                placeholder="ఉదా: మహిళలకు ఏ ప్రభుత్వ పథకాలు ఉన్నాయి?"
+            >
+
+
+            <button
+                id="micButton"
+                class="mic"
+                onclick="startListening()">
+
+                🎙️
+
+            </button>
+
+        </div>
+
+
+        <button
+            id="askButton"
+            class="ask"
+            onclick="askQuestion()">
+
+            ✨ నాకు సహాయం చేయండి
+
+        </button>
+
+
+        <div
+            id="status"
+            class="status">
+        </div>
+
+
+
+        <!-- RESPONSE -->
+
+        <div
+            id="response"
+            class="response">
+
+            <div class="response-title">
+
+                <div class="ai">
+                    ✨
+                </div>
+
+                <h4 id="responseTitle">
+                    Akshar Digi
+                </h4>
+
+            </div>
+
+
+            <div
+                id="responseContent"
+                class="response-content">
+            </div>
+
+
+            <button
+                class="listen"
+                onclick="speakAnswer()">
+
+                🔊 <span id="answerListen">
+                    సమాధానం వినండి
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- QUICK HELP -->
+
+    <div class="quick-title">
+
+        <h3 id="quickTitle">
+            మీకు కావాల్సిన సహాయం
+        </h3>
+
+        <p id="quickSubtitle">
+            ఒక అంశాన్ని ఎంచుకోండి
+        </p>
+
+    </div>
+
+
+    <div class="quick-grid">
+
+
+        <button
+            class="quick"
+            onclick="quickQuestion('women')">
+
+            <div class="quick-icon q1">
+                👩
+            </div>
+
+            <h4 id="womenTitle">
+                మహిళల పథకాలు
+            </h4>
+
+            <p id="womenSub">
+                ప్రభుత్వ సహాయం
+            </p>
+
+        </button>
+
+
+
+        <button
+            class="quick"
+            onclick="quickQuestion('jobs')">
+
+            <div class="quick-icon q2">
+                💼
+            </div>
+
+            <h4 id="jobsTitle">
+                ఉద్యోగం & నైపుణ్యాలు
+            </h4>
+
+            <p id="jobsSub">
+                ఉద్యోగ అవకాశాలు
+            </p>
+
+        </button>
+
+
+
+        <button
+            class="quick"
+            onclick="quickQuestion('education')">
+
+            <div class="quick-icon q3">
+                🎓
+            </div>
+
+            <h4 id="educationTitle">
+                విద్య
+            </h4>
+
+            <p id="educationSub">
+                చదువు సహాయం
+            </p>
+
+        </button>
+
+
+
+        <button
+            class="quick"
+            onclick="quickQuestion('health')">
+
+            <div class="quick-icon q4">
+                🏥
+            </div>
+
+            <h4 id="healthTitle">
+                ఆరోగ్యం
+            </h4>
+
+            <p id="healthSub">
+                ఆరోగ్య సేవలు
+            </p>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="about">
+
+    <div class="about-box">
+
+        <h3 id="aboutTitle">
+            🌱 Akshar Digi అంటే ఏమిటి?
+        </h3>
+
+        <p id="aboutText">
+
+            డిజిటల్ సేవలను ప్రతి ఒక్కరికీ
+            సులభంగా అందుబాటులోకి తీసుకురావడం
+            Akshar Digi లక్ష్యం.
+
+            ఇంగ్లీష్ లేదా టెక్నాలజీ గురించి
+            ముందుగా తెలుసుకోవాల్సిన అవసరం లేదు.
+
+            మీకు తెలిసిన భాషలో అడగండి.
+            Akshar Digi సులభమైన దశల్లో
+            మీకు మార్గనిర్దేశం చేస్తుంది.
+
+        </p>
+
+
+        <div class="features">
+
+
+            <div class="feature">
+
+                <strong id="feature1Title">
+                    🎙️ మీ భాషలో
+                </strong>
+
+                <span id="feature1Text">
+                    మాట్లాడి సహాయం పొందండి.
+                </span>
+
+            </div>
+
+
+            <div class="feature">
+
+                <strong id="feature2Title">
+                    🪜 ఒక్కో అడుగు
+                </strong>
+
+                <span id="feature2Text">
+                    క్లిష్టమైన పనులను సులభంగా తెలుసుకోండి.
+                </span>
+
+            </div>
+
+
+            <div class="feature">
+
+                <strong id="feature3Title">
+                    🌏 అందరికీ
+                </strong>
+
+                <span id="feature3Text">
+                    భారతీయ భాషల్లో డిజిటల్ సహాయం.
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+
+        🇮🇳
+
+        <strong>
+            Akshar Digi — అక్షర్ డిజి
+        </strong>
+
+    </p>
+
+    <p
+        id="footerText"
+        style="margin-top:8px">
+
+        మీ భాషలో • మీ కోసం • సులభమైన డిజిటల్ సహాయం
+
+    </p>
+
+    <p style="
+        margin-top:12px;
+        font-size:12px;
+    ">
+
+        AI-powered prototype
+        • PromptWars × HACKARENA
+
+    </p>
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   LANGUAGE DATA
+===================================================== */
+
+const languages = {
+
+"te-IN":{
+
+    tagline:"అక్షరం నుంచి అవకాశాల వరకు",
+
+    listen:"వినండి",
+
+    women:"మహిళల కోసం",
+
+    voice:"మీ భాషలో మాట్లాడండి",
+
+    hero:
+    "మీకు కావాల్సిన <span>ప్రభుత్వ సహాయం</span> ఇప్పుడు సులభంగా!",
+
+    description:
+    "Akshar Digi మీకు ప్రభుత్వ పథకాలు, ఉద్యోగాలు, విద్య మరియు ఆరోగ్య సేవలను మీ భాషలో సులభంగా అర్థం చేసుకోవడానికి సహాయం చేస్తుంది.",
+
+    trust1:"🎙️ వాయిస్ సహాయం",
+
+    trust2:"💬 సులభమైన భాష",
+
+    trust3:"👩 అందరికీ",
+
+    trust4:"📱 మొబైల్‌లో సులభం",
+
+    title:"మీకు ఏ సహాయం కావాలి?",
+
+    subtitle:"మీ భాషలో మాట్లాడండి లేదా టైప్ చేయండి",
+
+    placeholder:"ఉదా: మహిళలకు ఏ ప్రభుత్వ పథకాలు ఉన్నాయి?",
+
+    ask:"✨ నాకు సహాయం చేయండి",
+
+    quick:"మీకు కావాల్సిన సహాయం",
+
+    quickSub:"ఒక అంశాన్ని ఎంచుకోండి",
+
+    womenTitle:"మహిళల పథకాలు",
+
+    womenSub:"ప్రభుత్వ సహాయం",
+
+    jobsTitle:"ఉద్యోగం & నైపుణ్యాలు",
+
+    jobsSub:"ఉద్యోగ అవకాశాలు",
+
+    educationTitle:"విద్య",
+
+    educationSub:"చదువు సహాయం",
+
+    healthTitle:"ఆరోగ్యం",
+
+    healthSub:"ఆరోగ్య సేవలు",
+
+    aboutTitle:"🌱 Akshar Digi అంటే ఏమిటి?",
+
+    about:
+    "డిజిటల్ సేవలను ప్రతి ఒక్కరికీ సులభంగా అందుబాటులోకి తీసుకురావడం Akshar Digi లక్ష్యం. ఇంగ్లీష్ లేదా టెక్నాలజీ గురించి ముందుగా తెలుసుకోవాల్సిన అవసరం లేదు. మీకు తెలిసిన భాషలో అడగండి. Akshar Digi సులభమైన దశల్లో మీకు మార్గనిర్దేశం చేస్తుంది.",
+
+    f1:"🎙️ మీ భాషలో",
+
+    f1t:"మాట్లాడి సహాయం పొందండి.",
+
+    f2:"🪜 ఒక్కో అడుగు",
+
+    f2t:"క్లిష్టమైన పనులను సులభంగా తెలుసుకోండి.",
+
+    f3:"🌏 అందరికీ",
+
+    f3t:"భారతీయ భాషల్లో డిజిటల్ సహాయం.",
+
+    footer:"మీ భాషలో • మీ కోసం • సులభమైన డిజిటల్ సహాయం"
+
+},
+
+
+"hi-IN":{
+
+    tagline:"अक्षर से अवसर तक",
+
+    listen:"सुनें",
+
+    women:"महिलाओं के लिए",
+
+    voice:"अपनी भाषा में बोलें",
+
+    hero:
+    "आपके लिए <span>सरकारी सहायता</span> अब आसान!",
+
+    description:
+    "Akshar Digi आपको सरकारी योजनाओं, रोजगार, शिक्षा और स्वास्थ्य सेवाओं को अपनी भाषा में आसानी से समझने में मदद करता है।",
+
+    trust1:"🎙️ आवाज़ की सहायता",
+
+    trust2:"💬 सरल भाषा",
+
+    trust3:"👩 सभी के लिए",
+
+    trust4:"📱 मोबाइल पर आसान",
+
+    title:"आपको किस मदद की ज़रूरत है?",
+
+    subtitle:"अपनी भाषा में बोलें या लिखें",
+
+    placeholder:"उदाहरण: महिलाओं के लिए कौन सी सरकारी योजनाएँ हैं?",
+
+    ask:"✨ मेरी मदद करें",
+
+    quick:"आपको किस तरह की मदद चाहिए?",
+
+    quickSub:"एक विषय चुनें",
+
+    womenTitle:"महिला योजनाएँ",
+
+    womenSub:"सरकारी सहायता",
+
+    jobsTitle:"रोजगार और कौशल",
+
+    jobsSub:"रोजगार के अवसर",
+
+    educationTitle:"शिक्षा",
+
+    educationSub:"शिक्षा सहायता",
+
+    healthTitle:"स्वास्थ्य",
+
+    healthSub:"स्वास्थ्य सेवाएँ",
+
+    aboutTitle:"🌱 Akshar Digi क्या है?",
+
+    about:
+    "Akshar Digi का उद्देश्य डिजिटल सेवाओं को सभी के लिए आसान बनाना है। आपको अंग्रेज़ी या तकनीक का पहले से ज्ञान होना आवश्यक नहीं है। अपनी भाषा में पूछें और Akshar Digi आपको आसान चरणों में मार्गदर्शन करेगा।",
+
+    f1:"🎙️ अपनी भाषा में",
+
+    f1t:"बोलकर सहायता प्राप्त करें।",
+
+    f2:"🪜 एक-एक कदम",
+
+    f2t:"मुश्किल कामों को आसानी से समझें।",
+
+    f3:"🌏 सभी के लिए",
+
+    f3t:"भारतीय भाषाओं में डिजिटल सहायता।",
+
+    footer:"आपकी भाषा में • आपके लिए • आसान डिजिटल सहायता"
+
+},
+
+
+"ta-IN":{
+
+    tagline:"எழுத்திலிருந்து வாய்ப்புகள் வரை",
+
+    listen:"கேளுங்கள்",
+
+    women:"பெண்களுக்காக",
+
+    voice:"உங்கள் மொழியில் பேசுங்கள்",
+
+    hero:
+    "உங்களுக்கு தேவையான <span>அரசு உதவி</span> இப்போது எளிதாக!",
+
+    description:
+    "Akshar Digi அரசு திட்டங்கள், வேலைவாய்ப்பு, கல்வி மற்றும் சுகாதார சேவைகளை உங்கள் மொழியில் எளிதாகப் புரிந்துகொள்ள உதவுகிறது.",
+
+    trust1:"🎙️ குரல் உதவி",
+
+    trust2:"💬 எளிய மொழி",
+
+    trust3:"👩 அனைவருக்கும்",
+
+    trust4:"📱 மொபைலில் எளிது",
+
+    title:"உங்களுக்கு என்ன உதவி தேவை?",
+
+    subtitle:"உங்கள் மொழியில் பேசுங்கள் அல்லது தட்டச்சு செய்யுங்கள்",
+
+    placeholder:"உதாரணம்: பெண்களுக்கான அரசு திட்டங்கள் என்ன?",
+
+    ask:"✨ எனக்கு உதவுங்கள்",
+
+    quick:"உங்களுக்கு தேவையான உதவி",
+
+    quickSub:"ஒரு தலைப்பைத் தேர்ந்தெடுக்கவும்",
+
+    womenTitle:"பெண்கள் திட்டங்கள்",
+
+    womenSub:"அரசு உதவி",
+
+    jobsTitle:"வேலை & திறன்கள்",
+
+    jobsSub:"வேலை வாய்ப்புகள்",
+
+    educationTitle:"கல்வி",
+
+    educationSub:"கல்வி உதவி",
+
+    healthTitle:"சுகாதாரம்",
+
+    healthSub:"சுகாதார சேவைகள்",
+
+    aboutTitle:"🌱 Akshar Digi என்றால் என்ன?",
+
+    about:
+    "டிஜிட்டல் சேவைகளை அனைவருக்கும் எளிதாக அணுகக்கூடியதாக மாற்றுவதே Akshar Digi-யின் நோக்கம். ஆங்கிலம் அல்லது தொழில்நுட்ப அறிவு முன்பே தேவையில்லை. உங்கள் மொழியில் கேளுங்கள்.",
+
+    f1:"🎙️ உங்கள் மொழியில்",
+
+    f1t:"பேசி உதவி பெறுங்கள்.",
+
+    f2:"🪜 படிப்படியாக",
+
+    f2t:"சிக்கலான செயல்களை எளிதாகப் புரிந்துகொள்ளுங்கள்.",
+
+    f3:"🌏 அனைவருக்கும்",
+
+    f3t:"இந்திய மொழிகளில் டிஜிட்டல் உதவி.",
+
+    footer:"உங்கள் மொழியில் • உங்களுக்காக • எளிய டிஜிட்டல் உதவி"
+
+},
+
+
+"kn-IN":{
+
+    tagline:"ಅಕ್ಷರದಿಂದ ಅವಕಾಶದವರೆಗೆ",
+
+    listen:"ಕೇಳಿ",
+
+    women:"ಮಹಿಳೆಯರಿಗಾಗಿ",
+
+    voice:"ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ ಮಾತನಾಡಿ",
+
+    hero:
+    "ನಿಮಗೆ ಬೇಕಾದ <span>ಸರ್ಕಾರಿ ಸಹಾಯ</span> ಈಗ ಸುಲಭ!",
+
+    description:
+    "Akshar Digi ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು, ಉದ್ಯೋಗ, ಶಿಕ್ಷಣ ಮತ್ತು ಆರೋಗ್ಯ ಸೇವೆಗಳನ್ನು ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
+
+    trust1:"🎙️ ಧ್ವನಿ ಸಹಾಯ",
+
+    trust2:"💬 ಸರಳ ಭಾಷೆ",
+
+    trust3:"👩 ಎಲ್ಲರಿಗೂ",
+
+    trust4:"📱 ಮೊಬೈಲ್‌ನಲ್ಲಿ ಸುಲಭ",
+
+    title:"ನಿಮಗೆ ಯಾವ ಸಹಾಯ ಬೇಕು?",
+
+    subtitle:"ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ ಮಾತನಾಡಿ ಅಥವಾ ಟೈಪ್ ಮಾಡಿ",
+
+    placeholder:"ಉದಾಹರಣೆ: ಮಹಿಳೆಯರಿಗೆ ಯಾವ ಸರ್ಕಾರಿ ಯೋಜನೆಗಳಿವೆ?",
+
+    ask:"✨ ನನಗೆ ಸಹಾಯ ಮಾಡಿ",
+
+    quick:"ನಿಮಗೆ ಬೇಕಾದ ಸಹಾಯ",
+
+    quickSub:"ಒಂದು ವಿಷಯ ಆಯ್ಕೆಮಾಡಿ",
+
+    womenTitle:"ಮಹಿಳಾ ಯೋಜನೆಗಳು",
+
+    womenSub:"ಸರ್ಕಾರಿ ಸಹಾಯ",
+
+    jobsTitle:"ಉದ್ಯೋಗ & ಕೌಶಲ್ಯ",
+
+    jobsSub:"ಉದ್ಯೋಗ ಅವಕಾಶಗಳು",
+
+    educationTitle:"ಶಿಕ್ಷಣ",
+
+    educationSub:"ಶಿಕ್ಷಣ ಸಹಾಯ",
+
+    healthTitle:"ಆರೋಗ್ಯ",
+
+    healthSub:"ಆರೋಗ್ಯ ಸೇವೆಗಳು",
+
+    aboutTitle:"🌱 Akshar Digi ಎಂದರೇನು?",
+
+    about:
+    "ಡಿಜಿಟಲ್ ಸೇವೆಗಳನ್ನು ಎಲ್ಲರಿಗೂ ಸುಲಭವಾಗಿ ತಲುಪಿಸುವುದು Akshar Digi ಉದ್ದೇಶ. ಇಂಗ್ಲಿಷ್ ಅಥವಾ ತಂತ್ರಜ್ಞಾನ ಜ್ಞಾನ ಅಗತ್ಯವಿಲ್ಲ.",
+
+    f1:"🎙️ ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ",
+
+    f1t:"ಮಾತನಾಡಿ ಸಹಾಯ ಪಡೆಯಿರಿ.",
+
+    f2:"🪜 ಹಂತ ಹಂತವಾಗಿ",
+
+    f2t:"ಕಷ್ಟಕರ ಕೆಲಸಗಳನ್ನು ಸುಲಭವಾಗಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.",
+
+    f3:"🌏 ಎಲ್ಲರಿಗೂ",
+
+    f3t:"ಭಾರತೀಯ ಭಾಷೆಗಳಲ್ಲಿ ಡಿಜಿಟಲ್ ಸಹಾಯ.",
+
+    footer:"ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ • ನಿಮಗಾಗಿ • ಸರಳ ಡಿಜಿಟಲ್ ಸಹಾಯ"
+
+},
+
+
+"ml-IN":{
+
+    tagline:"അക്ഷരത്തിൽ നിന്ന് അവസരങ്ങളിലേക്ക്",
+
+    listen:"കേൾക്കുക",
+
+    women:"സ്ത്രീകൾക്കായി",
+
+    voice:"നിങ്ങളുടെ ഭാഷയിൽ സംസാരിക്കുക",
+
+    hero:
+    "നിങ്ങൾക്ക് ആവശ്യമായ <span>സർക്കാർ സഹായം</span> ഇനി എളുപ്പം!",
+
+    description:
+    "Akshar Digi സർക്കാർ പദ്ധതികൾ, തൊഴിൽ, വിദ്യാഭ്യാസം, ആരോഗ്യ സേവനങ്ങൾ എന്നിവ നിങ്ങളുടെ ഭാഷയിൽ മനസ്സിലാക്കാൻ സഹായിക്കുന്നു.",
+
+    trust1:"🎙️ ശബ്ദ സഹായം",
+
+    trust2:"💬 ലളിതമായ ഭാഷ",
+
+    trust3:"👩 എല്ലാവർക്കും",
+
+    trust4:"📱 മൊബൈലിൽ എളുപ്പം",
+
+    title:"നിങ്ങൾക്ക് എന്ത് സഹായമാണ് വേണ്ടത്?",
+
+    subtitle:"നിങ്ങളുടെ ഭാഷയിൽ സംസാരിക്കുക അല്ലെങ്കിൽ ടൈപ്പ് ചെയ്യുക",
+
+    placeholder:"ഉദാഹരണം: സ്ത്രീകൾക്കുള്ള സർക്കാർ പദ്ധതികൾ ഏതൊക്കെയാണ്?",
+
+    ask:"✨ എന്നെ സഹായിക്കൂ",
+
+    quick:"നിങ്ങൾക്ക് വേണ്ട സഹായം",
+
+    quickSub:"ഒരു വിഷയം തിരഞ്ഞെടുക്കുക",
+
+    womenTitle:"സ്ത്രീ പദ്ധതികൾ",
+
+    womenSub:"സർക്കാർ സഹായം",
+
+    jobsTitle:"തൊഴിൽ & കഴിവുകൾ",
+
+    jobsSub:"തൊഴിൽ അവസരങ്ങൾ",
+
+    educationTitle:"വിദ്യാഭ്യാസം",
+
+    educationSub:"വിദ്യാഭ്യാസ സഹായം",
+
+    healthTitle:"ആരോഗ്യം",
+
+    healthSub:"ആരോഗ്യ സേവനങ്ങൾ",
+
+    aboutTitle:"🌱 Akshar Digi എന്താണ്?",
+
+    about:
+    "ഡിജിറ്റൽ സേവനങ്ങൾ എല്ലാവർക്കും എളുപ്പത്തിൽ ലഭ്യമാക്കുക എന്നതാണ് Akshar Digi-യുടെ ലക്ഷ്യം. ഇംഗ്ലീഷോ സാങ്കേതിക പരിജ്ഞാനമോ ആവശ്യമില്ല.",
+
+    f1:"🎙️ നിങ്ങളുടെ ഭാഷയിൽ",
+
+    f1t:"സംസാരിച്ച് സഹായം നേടുക.",
+
+    f2:"🪜 ഓരോ ഘട്ടവും",
+
+    f2t:"സങ്കീർണ്ണമായ കാര്യങ്ങൾ എളുപ്പത്തിൽ മനസ്സിലാക്കുക.",
+
+    f3:"🌏 എല്ലാവർക്കും",
+
+    f3t:"ഇന്ത്യൻ ഭാഷകളിൽ ഡിജിറ്റൽ സഹായം.",
+
+    footer:"നിങ്ങളുടെ ഭാഷയിൽ • നിങ്ങൾക്കായി • ലളിതമായ ഡിജിറ്റൽ സഹായം"
+
+}
+
+};
+
+
+/* =====================================================
+   FALLBACK TRANSLATIONS
+===================================================== */
+
+const genericLanguages = {
+
+"mr-IN":"मराठी",
+"gu-IN":"ગુજરાતી",
+"bn-IN":"বাংলা",
+"pa-IN":"ਪੰਜਾਬੀ",
+"or-IN":"ଓଡ଼ିଆ",
+"as-IN":"অসমীয়া",
+"ur-IN":"اردو",
+"ne-IN":"नेपाली",
+"kok-IN":"कोंकणी",
+"mai-IN":"मैथिली",
+"doi-IN":"डोगरी",
+"mni-IN":"মৈতৈলোন্",
+"ks-IN":"کٲشُر",
+"sat-IN":"ᱥᱟᱱᱛᱟᱲᱤ",
+"sd-IN":"سنڌي",
+"sa-IN":"संस्कृतम्",
+"brx-IN":"बड़ो"
+
+};
+
+
+/* =====================================================
+   CURRENT LANGUAGE
+===================================================== */
+
+let currentLanguage = "te-IN";
+
+let lastAnswer = "";
+
+
+/* =====================================================
+   CHANGE LANGUAGE
+===================================================== */
+
+function changeLanguage(){
+
+    currentLanguage =
+        document.getElementById(
+            "language"
+        ).value;
+
+
+    const data =
+        languages[currentLanguage];
+
+
+    /*
+       Full UI translation exists for Telugu,
+       Hindi, Tamil, Kannada and Malayalam.
+
+       For the remaining scheduled languages,
+       the interface retains a simple multilingual
+       structure and Gemini can generate the
+       complete response in the selected language.
+    */
+
+    if(data){
+
+        document.getElementById(
+            "tagline"
+        ).innerText=data.tagline;
+
+        document.getElementById(
+            "listenText"
+        ).innerText=data.listen;
+
+        document.getElementById(
+            "womenTag"
+        ).innerText=data.women;
+
+        document.getElementById(
+            "voiceTag"
+        ).innerText=data.voice;
+
+        document.getElementById(
+            "heroTitle"
+        ).innerHTML=data.hero;
+
+        document.getElementById(
+            "heroDescription"
+        ).innerText=data.description;
+
+        document.getElementById(
+            "trust1"
+        ).innerText=data.trust1;
+
+        document.getElementById(
+            "trust2"
+        ).innerText=data.trust2;
+
+        document.getElementById(
+            "trust3"
+        ).innerText=data.trust3;
+
+        document.getElementById(
+            "trust4"
+        ).innerText=data.trust4;
+
+        document.getElementById(
+            "assistantTitle"
+        ).innerText=data.title;
+
+        document.getElementById(
+            "assistantSubtitle"
+        ).innerText=data.subtitle;
+
+        document.getElementById(
+            "question"
+        ).placeholder=data.placeholder;
+
+        document.getElementById(
+            "askButton"
+        ).innerText=data.ask;
+
+        document.getElementById(
+            "quickTitle"
+        ).innerText=data.quick;
+
+        document.getElementById(
+            "quickSubtitle"
+        ).innerText=data.quickSub;
+
+        document.getElementById(
+            "womenTitle"
+        ).innerText=data.womenTitle;
+
+        document.getElementById(
+            "womenSub"
+        ).innerText=data.womenSub;
+
+        document.getElementById(
+            "jobsTitle"
+        ).innerText=data.jobsTitle;
+
+        document.getElementById(
+            "jobsSub"
+        ).innerText=data.jobsSub;
+
+        document.getElementById(
+            "educationTitle"
+        ).innerText=data.educationTitle;
+
+        document.getElementById(
+            "educationSub"
+        ).innerText=data.educationSub;
+
+        document.getElementById(
+            "healthTitle"
+        ).innerText=data.healthTitle;
+
+        document.getElementById(
+            "healthSub"
+        ).innerText=data.healthSub;
+
+        document.getElementById(
+            "aboutTitle"
+        ).innerText=data.aboutTitle;
+
+        document.getElementById(
+            "aboutText"
+        ).innerText=data.about;
+
+        document.getElementById(
+            "feature1Title"
+        ).innerText=data.f1;
+
+        document.getElementById(
+            "feature1Text"
+        ).innerText=data.f1t;
+
+        document.getElementById(
+            "feature2Title"
+        ).innerText=data.f2;
+
+        document.getElementById(
+            "feature2Text"
+        ).innerText=data.f2t;
+
+        document.getElementById(
+            "feature3Title"
+        ).innerText=data.f3;
+
+        document.getElementById(
+            "feature3Text"
+        ).innerText=data.f3t;
+
+        document.getElementById(
+            "footerText"
+        ).innerText=data.footer;
+
+    }
+
+}
+
+
+/* =====================================================
+   WELCOME VOICE
+===================================================== */
+
+function speakWelcome(){
+
+    const messages={
+
+        "te-IN":
+        "అక్షర్ డిజికి స్వాగతం. మీకు కావాల్సిన ప్రభుత్వ సేవ లేదా పథకం గురించి మీ భాషలో అడగండి.",
+
+        "hi-IN":
+        "अक्षर डिजी में आपका स्वागत है। सरकारी सेवा या योजना के बारे में अपनी भाषा में पूछें।",
+
+        "ta-IN":
+        "அக்ஷர் டிஜிக்கு வரவேற்கிறோம். அரசு சேவை அல்லது திட்டம் பற்றி உங்கள் மொழியில் கேளுங்கள்.",
+
+        "kn-IN":
+        "ಅಕ್ಷರ್ ಡಿಜಿಗೆ ಸ್ವಾಗತ. ಸರ್ಕಾರಿ ಸೇವೆ ಅಥವಾ ಯೋಜನೆಯ ಬಗ್ಗೆ ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ ಕೇಳಿ.",
+
+        "ml-IN":
+        "അക്ഷർ ഡിജിയിലേക്ക് സ്വാഗതം. സർക്കാർ സേവനത്തെക്കുറിച്ചോ പദ്ധതിയെക്കുറിച്ചോ നിങ്ങളുടെ ഭാഷയിൽ ചോദിക്കുക."
+
+    };
+
+
+    speak(
+        messages[currentLanguage] ||
+        "Akshar Digi. உங்கள் மொழியில் கேளுங்கள்."
+    );
+
+}
+
+
+/* =====================================================
+   TEXT TO SPEECH
+===================================================== */
+
+function speak(text){
+
+    if(!("speechSynthesis" in window)){
+
+        alert(
+            "మీ బ్రౌజర్‌లో వాయిస్ సౌకర్యం అందుబాటులో లేదు."
+        );
+
+        return;
+    }
+
+
+    speechSynthesis.cancel();
+
+
+    const utterance =
+        new SpeechSynthesisUtterance(text);
+
+
+    utterance.lang =
+        currentLanguage;
+
+    utterance.rate=.85;
+
+    speechSynthesis.speak(
+        utterance
+    );
+
+}
+
+
+/* =====================================================
+   VOICE INPUT
+===================================================== */
+
+function startListening(){
+
+    const Recognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+
+    if(!Recognition){
+
+        alert(
+            "మీ బ్రౌజర్‌లో వాయిస్ టైపింగ్ అందుబాటులో లేదు. Google Chrome ఉపయోగించండి."
+        );
+
+        return;
+    }
+
+
+    const recognition =
+        new Recognition();
+
+
+    recognition.lang =
+        currentLanguage;
+
+    recognition.interimResults=false;
+
+    recognition.continuous=false;
+
+
+    const mic =
+        document.getElementById(
+            "micButton"
+        );
+
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
+
+    mic.classList.add(
+        "listening"
+    );
+
+
+    status.innerText =
+        "🎙️ Listening...";
+
+
+    recognition.start();
+
+
+    recognition.onresult =
+        function(event){
+
+            const text =
+                event.results[0][0]
+                .transcript;
+
+
+            document.getElementById(
+                "question"
+            ).value=text;
+
+
+            status.innerText =
+                "✓";
+
+
+            mic.classList.remove(
+                "listening"
+            );
+
+
+            setTimeout(
+                askQuestion,
+                400
+            );
+
+        };
+
+
+    recognition.onerror =
+        function(){
+
+            mic.classList.remove(
+                "listening"
+            );
+
+            status.innerText =
+                "Please try again.";
+
+        };
+
+
+    recognition.onend =
+        function(){
+
+            mic.classList.remove(
+                "listening"
+            );
+
+        };
+
+}
+
+
+/* =====================================================
+   QUICK QUESTION
+===================================================== */
+
+function quickQuestion(type){
+
+    const questions={
+
+        "te-IN":{
+
+            women:"మహిళలకు ప్రభుత్వ పథకాలు కావాలి",
+
+            jobs:"నాకు ఉద్యోగం మరియు నైపుణ్య శిక్షణ కావాలి",
+
+            education:"నాకు విద్యా సహాయం కావాలి",
+
+            health:"నాకు ఆరోగ్య సేవలు కావాలి"
+
+        },
+
+        "hi-IN":{
+
+            women:"मुझे महिलाओं के लिए सरकारी योजनाएं चाहिए",
+
+            jobs:"मुझे नौकरी और कौशल प्रशिक्षण चाहिए",
+
+            education:"मुझे शिक्षा सहायता चाहिए",
+
+            health:"मुझे स्वास्थ्य सेवाएं चाहिए"
+
+        },
+
+        "ta-IN":{
+
+            women:"பெண்களுக்கான அரசு திட்டங்கள் வேண்டும்",
+
+            jobs:"எனக்கு வேலை மற்றும் திறன் பயிற்சி வேண்டும்",
+
+            education:"எனக்கு கல்வி உதவி வேண்டும்",
+
+            health:"எனக்கு சுகாதார சேவைகள் வேண்டும்"
+
+        }
+
+    };
+
+
+    const langQuestions =
+        questions[currentLanguage] ||
+        questions["te-IN"];
+
+
+    document.getElementById(
+        "question"
+    ).value =
+        langQuestions[type];
+
+
+    askQuestion();
+
+}
+
+
+/* =====================================================
+   ASK QUESTION
+===================================================== */
+
+function askQuestion(){
+
+    const question =
+        document.getElementById(
+            "question"
+        ).value.trim();
+
+
+    if(!question){
+
+        speak(
+            "దయచేసి మీకు కావాల్సిన సహాయం గురించి అడగండి."
+        );
+
+        return;
+
+    }
+
+
+    showDemoAnswer(question);
+
+}
+
+
+/* =====================================================
+   DEMO RESPONSE
+===================================================== */
+
+function showDemoAnswer(question){
+
+    let response;
+
+
+    if(currentLanguage==="hi-IN"){
+
+        response=`
+
+        <p>
+        🌸 आपकी सहायता के लिए पहले आपकी
+        आवश्यकता को समझना जरूरी है।
+        </p>
+
+        <div class="step">
+            <div class="number">1</div>
+            <div>आपको किस तरह की सहायता चाहिए बताएं।</div>
+        </div>
+
+        <div class="step">
+            <div class="number">2</div>
+            <div>अपनी उम्र, राज्य और आवश्यक जानकारी तैयार रखें।</div>
+        </div>
+
+        <div class="step">
+            <div class="number">3</div>
+            <div>आपके लिए उपयुक्त सरकारी योजना खोजें और आवेदन प्रक्रिया समझें।</div>
+        </div>
+
+        `;
+
+    }
+
+    else if(currentLanguage==="ta-IN"){
+
+        response=`
+
+        <p>
+        🌸 உங்கள் தேவையை முதலில் புரிந்துகொள்வோம்.
+        </p>
+
+        <div class="step">
+            <div class="number">1</div>
+            <div>உங்களுக்கு என்ன உதவி வேண்டும் என்று சொல்லுங்கள்.</div>
+        </div>
+
+        <div class="step">
+            <div class="number">2</div>
+            <div>உங்கள் வயது, மாநிலம் மற்றும் தேவையான தகவல்களைத் தயாராக வைத்திருங்கள்.</div>
+        </div>
+
+        <div class="step">
+            <div class="number">3</div>
+            <div>உங்களுக்கு பொருத்தமான அரசு திட்டத்தை கண்டறிந்து விண்ணப்பிக்கும் முறையைப் புரிந்துகொள்ளுங்கள்.</div>
+        </div>
+
+        `;
+
+    }
+
+    else{
+
+        response=`
+
+        <p>
+        🌸 మీకు సరైన సహాయం అందించడానికి
+        ముందుగా మీ అవసరాన్ని తెలుసుకుందాం.
+        </p>
+
+        <div class="step">
+            <div class="number">1</div>
+            <div>మీకు ఎలాంటి సహాయం కావాలో చెప్పండి.</div>
+        </div>
+
+        <div class="step">
+            <div class="number">2</div>
+            <div>మీ వయస్సు, రాష్ట్రం మరియు అవసరమైన వివరాలను సిద్ధంగా ఉంచండి.</div>
+        </div>
+
+        <div class="step">
+            <div class="number">3</div>
+            <div>మీకు సరిపోయే ప్రభుత్వ పథకాన్ని గుర్తించి, దరఖాస్తు చేసే విధానాన్ని తెలుసుకోండి.</div>
+        </div>
+
+        <p style="margin-top:12px">
+        💡 తరువాత Gemini ద్వారా మీ ప్రశ్నకు
+        మీ ఎంపిక చేసిన భాషలో పూర్తి సమాధానం ఇవ్వవచ్చు.
+        </p>
+
+        `;
+
+    }
+
+
+    document.getElementById(
+        "responseContent"
+    ).innerHTML=response;
+
+
+    document.getElementById(
+        "response"
+    ).classList.add("show");
+
+
+    lastAnswer =
+        document.getElementById(
+            "responseContent"
+        ).innerText;
+
+
+    document.getElementById(
+        "response"
+    ).scrollIntoView({
+
+        behavior:"smooth",
+
+        block:"center"
+
+    });
+
+}
+
+
+/* =====================================================
+   SPEAK ANSWER
+===================================================== */
+
+function speakAnswer(){
+
+    if(lastAnswer){
+
+        speak(lastAnswer);
+
+    }
+
+}
+
+
+/* =====================================================
+   ENTER KEY
+===================================================== */
+
+document
+    .getElementById("question")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key==="Enter"){
+
+                askQuestion();
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
+  </body>
+</html>
