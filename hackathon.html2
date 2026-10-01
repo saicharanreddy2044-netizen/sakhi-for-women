@@ -1,0 +1,2180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sakhi AI - Indian Language Government Assistant</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family:
+    Arial,
+    "Noto Sans",
+    "Noto Sans Devanagari",
+    "Noto Sans Tamil",
+    "Noto Sans Telugu",
+    "Noto Sans Kannada",
+    "Noto Sans Malayalam",
+    sans-serif;
+}
+
+body {
+  background: #f7f8fc;
+  color: #202124;
+  min-height: 100vh;
+}
+
+header {
+  background: linear-gradient(135deg,#673de6,#9146ff);
+  color: white;
+  padding: 16px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-shadow: 0 3px 15px rgba(0,0,0,.15);
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.language-box select {
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  padding: 30px 18px 80px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.hero-icon {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+.hero h1 {
+  color: #4320a8;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  color: #666;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.card {
+  background: white;
+  border-radius: 22px;
+  padding: 25px;
+  margin-bottom: 20px;
+
+  box-shadow: 0 5px 25px rgba(0,0,0,.07);
+}
+
+.voice-section {
+  text-align: center;
+  padding: 35px 20px;
+}
+
+.mic-button {
+  width: 110px;
+  height: 110px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: #6c3df5;
+  color: white;
+
+  font-size: 43px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px rgba(108,61,245,.35);
+
+  transition: .2s;
+}
+
+.mic-button:hover {
+  transform: scale(1.05);
+}
+
+.mic-button.listening {
+  background: #e53935;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(229,57,53,.5);
+  }
+
+  70% {
+    box-shadow:
+      0 0 0 25px rgba(229,57,53,0);
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(229,57,53,0);
+  }
+
+}
+
+.voice-status {
+  margin-top: 18px;
+  color: #666;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.input-row input {
+  flex: 1;
+
+  padding: 15px;
+
+  border: 1px solid #ddd;
+  border-radius: 14px;
+
+  font-size: 16px;
+}
+
+.send-btn {
+  padding: 0 22px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: #6c3df5;
+  color: white;
+
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.chat {
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+.message {
+  display: flex;
+  margin: 12px 0;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.bubble {
+  max-width: 80%;
+  padding: 14px 17px;
+
+  border-radius: 18px;
+
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.assistant .bubble {
+  background: #f0ecff;
+  border-bottom-left-radius: 5px;
+}
+
+.user .bubble {
+  background: #6c3df5;
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+.scheme h2,
+.steps-card h2 {
+  margin-bottom: 18px;
+  color: #4320a8;
+}
+
+.scheme {
+  border: 2px solid #eee;
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.scheme-item {
+  display: flex;
+  gap: 14px;
+
+  padding: 15px 0;
+
+  border-bottom: 1px solid #eee;
+}
+
+.scheme-item:last-child {
+  border-bottom: none;
+}
+
+.scheme-icon {
+  font-size: 27px;
+}
+
+.primary {
+  width: 100%;
+
+  padding: 15px;
+  margin-top: 18px;
+
+  background: #6c3df5;
+  color: white;
+
+  border: none;
+  border-radius: 13px;
+
+  font-size: 17px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.secondary {
+  background: #eee9ff;
+  color: #4d28c9;
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 12px 16px;
+
+  cursor: pointer;
+
+  margin-top: 10px;
+}
+
+.steps {
+  margin-top: 10px;
+}
+
+.step {
+  display: flex;
+  gap: 15px;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid #eee;
+}
+
+.step-number {
+  min-width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: #6c3df5;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+}
+
+.step-content h4 {
+  margin-bottom: 6px;
+}
+
+.step-content p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.success {
+  text-align: center;
+  padding: 30px;
+}
+
+.success-icon {
+  font-size: 65px;
+  margin-bottom: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #888;
+  font-size: 13px;
+}
+
+@media(max-width:600px) {
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  .send-btn {
+    padding: 14px;
+  }
+
+  .bubble {
+    max-width: 90%;
+  }
+
+}
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+  <div class="logo">
+    🌸 Sakhi AI
+  </div>
+
+  <div class="language-box">
+
+    <select id="languageSelect"
+            onchange="changeLanguage()">
+
+    </select>
+
+  </div>
+
+</header>
+
+
+<div class="container">
+
+  <section class="hero">
+
+    <div class="hero-icon">
+      👩‍💻
+    </div>
+
+    <h1 id="title"></h1>
+
+    <p id="subtitle"></p>
+
+  </section>
+
+
+  <!-- VOICE -->
+
+  <div class="card voice-section">
+
+    <button
+      id="micButton"
+      class="mic-button"
+      onclick="startListening()">
+
+      🎙️
+
+    </button>
+
+    <div
+      id="voiceStatus"
+      class="voice-status">
+    </div>
+
+
+    <div class="input-row">
+
+      <input
+        id="textInput"
+        type="text">
+
+      <button
+        class="send-btn"
+        onclick="sendMessage()"
+        id="sendButton">
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- CHAT -->
+
+  <div class="card">
+
+    <div id="chat" class="chat"></div>
+
+  </div>
+
+
+  <!-- SCHEME -->
+
+  <div
+    id="schemeCard"
+    class="card hidden">
+
+    <h2 id="schemeTitle"></h2>
+
+    <div class="scheme">
+
+      <h3 id="schemeName"></h3>
+
+      <p id="schemeDescription"></p>
+
+
+      <div class="scheme-item">
+
+        <div class="scheme-icon">
+          👩
+        </div>
+
+        <div>
+          <b id="whoTitle"></b>
+          <br>
+          <span id="whoText"></span>
+        </div>
+
+      </div>
+
+
+      <div class="scheme-item">
+
+        <div class="scheme-icon">
+          💰
+        </div>
+
+        <div>
+          <b id="benefitTitle"></b>
+          <br>
+          <span id="benefitText"></span>
+        </div>
+
+      </div>
+
+
+      <div class="scheme-item">
+
+        <div class="scheme-icon">
+          📄
+        </div>
+
+        <div>
+          <b id="documentTitle"></b>
+          <br>
+          <span id="documentText"></span>
+        </div>
+
+      </div>
+
+
+      <button
+        class="primary"
+        onclick="showSteps()"
+        id="applyButton">
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- STEPS -->
+
+  <div
+    id="stepsCard"
+    class="card hidden steps-card">
+
+    <h2 id="stepsTitle"></h2>
+
+    <p id="stepsDescription"></p>
+
+
+    <div class="steps">
+
+      <div class="step">
+
+        <div class="step-number">1</div>
+
+        <div class="step-content">
+
+          <h4 id="step1Title"></h4>
+
+          <p id="step1Text"></p>
+
+          <button
+            class="secondary"
+            onclick="openGovernmentSite()"
+            id="websiteButton">
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">2</div>
+
+        <div class="step-content">
+
+          <h4 id="step2Title"></h4>
+
+          <p id="step2Text"></p>
+
+        </div>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">3</div>
+
+        <div class="step-content">
+
+          <h4 id="step3Title"></h4>
+
+          <p id="step3Text"></p>
+
+        </div>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">4</div>
+
+        <div class="step-content">
+
+          <h4 id="step4Title"></h4>
+
+          <p id="step4Text"></p>
+
+        </div>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">5</div>
+
+        <div class="step-content">
+
+          <h4 id="step5Title"></h4>
+
+          <p id="step5Text"></p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="primary"
+      onclick="completeApplication()"
+      id="completeButton">
+    </button>
+
+  </div>
+
+
+  <!-- SUCCESS -->
+
+  <div
+    id="successCard"
+    class="card hidden">
+
+    <div class="success">
+
+      <div class="success-icon">
+        🎉
+      </div>
+
+      <h2 id="successTitle"></h2>
+
+      <p id="successText"></p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<footer>
+  Sakhi AI • Digital Inclusion • HackArena
+</footer>
+
+
+
+<script>
+
+/*
+==================================================
+LANGUAGES
+==================================================
+*/
+
+const languages = {
+
+  hi: {
+    name:"हिन्दी",
+    speech:"hi-IN",
+
+    title:"आपका सरकारी सहायता साथी",
+    subtitle:"सरकारी योजनाओं के बारे में जानने के लिए बोलें या लिखें।",
+
+    voice:"बोलना शुरू करने के लिए माइक दबाएं",
+    placeholder:"यहां लिखें...",
+    send:"भेजें",
+
+    welcome:"नमस्ते 👋<br><br>मैं <b>Sakhi AI</b> हूं।<br>मैं आपको सरकारी योजनाओं और सेवाओं को आसानी से समझने और इस्तेमाल करने में मदद करूंगा।<br><br>क्या आपको सरकारी सहायता चाहिए?",
+
+    schemeTitle:"🌱 आपके लिए सरकारी योजना",
+    schemeName:"महिलाओं के लिए सरकारी सहायता",
+    schemeDescription:"आपकी जानकारी के आधार पर यह सरकारी सेवा आपके लिए उपयुक्त हो सकती है।",
+
+    whoTitle:"किसके लिए?",
+    whoText:"पात्र महिलाओं के लिए।",
+
+    benefitTitle:"क्या मिलेगा?",
+    benefitText:"सरकार द्वारा दी जाने वाली योजना की सहायता।",
+
+    documentTitle:"जरूरी दस्तावेज",
+    documentText:"पहचान पत्र, बैंक खाता आदि।",
+
+    apply:"👉 आवेदन कैसे करें?",
+
+    stepsTitle:"📝 आइए आवेदन करें",
+    stepsDescription:"चिंता न करें। मैं आपको हर कदम पर मदद करूंगा।",
+
+    step1Title:"सरकारी वेबसाइट खोलें",
+    step1Text:"नीचे दिए गए बटन को दबाएं।",
+    step2Title:"आवेदन चुनें",
+    step2Text:"'Apply' या 'आवेदन करें' बटन चुनें।",
+    step3Title:"अपनी जानकारी भरें",
+    step3Text:"नाम, मोबाइल नंबर और मांगी गई जानकारी भरें।",
+    step4Title:"दस्तावेज जमा करें",
+    step4Text:"जरूरी दस्तावेजों की फोटो अपलोड करें।",
+    step5Title:"आवेदन जमा करें",
+    step5Text:"जानकारी जांचकर Submit दबाएं।",
+
+    website:"🌐 सरकारी वेबसाइट खोलें",
+    complete:"✅ मैंने पूरा कर लिया",
+
+    successTitle:"बहुत अच्छा! 🎉",
+    successText:"आपने प्रक्रिया पूरी कर ली है। अब आप ऐसी सरकारी सेवाओं को खुद इस्तेमाल कर सकते हैं।"
+  },
+
+
+  ta: {
+    name:"தமிழ்",
+    speech:"ta-IN",
+
+    title:"உங்கள் அரசு உதவி நண்பர்",
+    subtitle:"அரசு திட்டங்களைப் பற்றி தெரிந்துகொள்ள பேசுங்கள் அல்லது எழுதுங்கள்.",
+
+    voice:"பேச தொடங்க மைக்கை அழுத்துங்கள்",
+    placeholder:"இங்கே எழுதுங்கள்...",
+    send:"அனுப்பு",
+
+    welcome:"வணக்கம் 👋<br><br>நான் <b>Sakhi AI</b>.<br>அரசு திட்டங்கள் மற்றும் சேவைகளை எளிதாக புரிந்துகொள்ளவும் பயன்படுத்தவும் நான் உதவுகிறேன்.<br><br>உங்களுக்கு அரசு உதவி வேண்டுமா?",
+
+    schemeTitle:"🌱 உங்களுக்கு பொருந்தக்கூடிய அரசு திட்டம்",
+    schemeName:"பெண்களுக்கான அரசு உதவி",
+    schemeDescription:"உங்கள் தகவல்களின் அடிப்படையில் இந்த அரசு சேவை உங்களுக்கு பொருந்தக்கூடும்.",
+
+    whoTitle:"யாருக்கு?",
+    whoText:"தகுதியான பெண்களுக்கு.",
+
+    benefitTitle:"என்ன கிடைக்கும்?",
+    benefitText:"அரசு வழங்கும் திட்ட உதவி.",
+
+    documentTitle:"தேவையான ஆவணங்கள்",
+    documentText:"அடையாள அட்டை, வங்கி கணக்கு போன்றவை.",
+
+    apply:"👉 எப்படி விண்ணப்பிப்பது?",
+
+    stepsTitle:"📝 படிப்படியாக விண்ணப்பிப்போம்",
+    stepsDescription:"கவலைப்பட வேண்டாம். ஒவ்வொரு படியாகவும் நான் உங்களுக்கு உதவுகிறேன்.",
+
+    step1Title:"அரசு இணையதளத்தை திறக்கவும்",
+    step1Text:"கீழே உள்ள பொத்தானை அழுத்தவும்.",
+    step2Title:"விண்ணப்பத்தை தேர்வு செய்யவும்",
+    step2Text:"'Apply' அல்லது 'விண்ணப்பிக்க' என்பதை தேர்வு செய்யவும்.",
+    step3Title:"உங்கள் தகவலை உள்ளிடவும்",
+    step3Text:"பெயர், மொபைல் எண் மற்றும் கேட்கப்படும் தகவல்களை உள்ளிடவும்.",
+    step4Title:"ஆவணங்களை சமர்ப்பிக்கவும்",
+    step4Text:"தேவையான ஆவணங்களின் புகைப்படங்களை பதிவேற்றவும்.",
+    step5Title:"விண்ணப்பத்தை சமர்ப்பிக்கவும்",
+    step5Text:"தகவல்களை சரிபார்த்து Submit என்பதை அழுத்தவும்.",
+
+    website:"🌐 அரசு இணையதளத்தை திறக்கவும்",
+    complete:"✅ நான் முடித்துவிட்டேன்",
+
+    successTitle:"மிகவும் நல்லது! 🎉",
+    successText:"நீங்கள் செயல்முறையை முடித்துவிட்டீர்கள். இனி இதுபோன்ற அரசு சேவைகளை நீங்களே பயன்படுத்தலாம்."
+  },
+
+
+  te: {
+    name:"తెలుగు",
+    speech:"te-IN",
+
+    title:"మీ ప్రభుత్వ సహాయ స్నేహితుడు",
+    subtitle:"ప్రభుత్వ పథకాల గురించి తెలుసుకోవడానికి మాట్లాడండి లేదా టైప్ చేయండి.",
+
+    voice:"మాట్లాడటం ప్రారంభించడానికి మైక్ నొక్కండి",
+    placeholder:"ఇక్కడ టైప్ చేయండి...",
+    send:"పంపండి",
+
+    welcome:"నమస్కారం 👋<br><br>నేను <b>Sakhi AI</b>.<br>ప్రభుత్వ పథకాలు మరియు సేవలను సులభంగా అర్థం చేసుకోవడానికి నేను మీకు సహాయం చేస్తాను.<br><br>మీకు ప్రభుత్వ సహాయం కావాలా?",
+
+    schemeTitle:"🌱 మీకు సరిపోయే ప్రభుత్వ పథకం",
+    schemeName:"మహిళల కోసం ప్రభుత్వ సహాయం",
+    schemeDescription:"మీ సమాచారం ఆధారంగా ఈ ప్రభుత్వ సేవ మీకు సరిపోవచ్చు.",
+
+    whoTitle:"ఎవరికి?",
+    whoText:"అర్హత ఉన్న మహిళలకు.",
+
+    benefitTitle:"ఏమి లభిస్తుంది?",
+    benefitText:"ప్రభుత్వ పథకం ద్వారా సహాయం.",
+
+    documentTitle:"అవసరమైన పత్రాలు",
+    documentText:"గుర్తింపు పత్రం, బ్యాంక్ ఖాతా మొదలైనవి.",
+
+    apply:"👉 ఎలా దరఖాస్తు చేయాలి?",
+
+    stepsTitle:"📝 దశలవారీగా దరఖాస్తు చేద్దాం",
+    stepsDescription:"చింతించకండి. ప్రతి దశలో నేను మీకు సహాయం చేస్తాను.",
+
+    step1Title:"ప్రభుత్వ వెబ్‌సైట్ తెరవండి",
+    step1Text:"క్రింది బటన్‌ను నొక్కండి.",
+    step2Title:"దరఖాస్తును ఎంచుకోండి",
+    step2Text:"'Apply' బటన్‌ను ఎంచుకోండి.",
+    step3Title:"మీ సమాచారాన్ని నమోదు చేయండి",
+    step3Text:"పేరు, మొబైల్ నంబర్ మరియు అడిగిన వివరాలను నమోదు చేయండి.",
+    step4Title:"పత్రాలను సమర్పించండి",
+    step4Text:"అవసరమైన పత్రాల ఫోటోలను అప్‌లోడ్ చేయండి.",
+    step5Title:"దరఖాస్తును సమర్పించండి",
+    step5Text:"సమాచారాన్ని తనిఖీ చేసి Submit నొక్కండి.",
+
+    website:"🌐 ప్రభుత్వ వెబ్‌సైట్ తెరవండి",
+    complete:"✅ నేను పూర్తి చేశాను",
+
+    successTitle:"చాలా బాగుంది! 🎉",
+    successText:"మీరు ప్రక్రియను పూర్తి చేశారు. ఇప్పుడు ఇలాంటి ప్రభుత్వ సేవలను మీరే ఉపయోగించవచ్చు."
+  },
+
+
+  bn: {
+    name:"বাংলা",
+    speech:"bn-IN",
+
+    title:"আপনার সরকারি সহায়তা সঙ্গী",
+    subtitle:"সরকারি প্রকল্প সম্পর্কে জানতে কথা বলুন বা লিখুন।",
+
+    voice:"কথা বলা শুরু করতে মাইক্রোফোন চাপুন",
+    placeholder:"এখানে লিখুন...",
+    send:"পাঠান",
+
+    welcome:"নমস্কার 👋<br><br>আমি <b>Sakhi AI</b>।<br>আমি আপনাকে সরকারি প্রকল্প ও পরিষেবা সহজে বুঝতে সাহায্য করব।<br><br>আপনার কি সরকারি সাহায্য দরকার?",
+
+    schemeTitle:"🌱 আপনার জন্য সরকারি প্রকল্প",
+    schemeName:"মহিলাদের জন্য সরকারি সহায়তা",
+    schemeDescription:"আপনার তথ্য অনুযায়ী এই সরকারি পরিষেবা আপনার জন্য উপযুক্ত হতে পারে।",
+
+    whoTitle:"কার জন্য?",
+    whoText:"যোগ্য মহিলাদের জন্য।",
+
+    benefitTitle:"কি পাওয়া যাবে?",
+    benefitText:"সরকারি প্রকল্পের সহায়তা।",
+
+    documentTitle:"প্রয়োজনীয় নথি",
+    documentText:"পরিচয়পত্র, ব্যাংক অ্যাকাউন্ট ইত্যাদি।",
+
+    apply:"👉 কীভাবে আবেদন করবেন?",
+
+    stepsTitle:"📝 ধাপে ধাপে আবেদন করুন",
+    stepsDescription:"চিন্তা করবেন না। প্রতিটি ধাপে আমি আপনাকে সাহায্য করব।",
+
+    step1Title:"সরকারি ওয়েবসাইট খুলুন",
+    step1Text:"নিচের বোতামটি চাপুন।",
+    step2Title:"আবেদন নির্বাচন করুন",
+    step2Text:"'Apply' বোতামটি নির্বাচন করুন।",
+    step3Title:"আপনার তথ্য দিন",
+    step3Text:"নাম, মোবাইল নম্বর এবং প্রয়োজনীয় তথ্য দিন।",
+    step4Title:"নথি জমা দিন",
+    step4Text:"প্রয়োজনীয় নথির ছবি আপলোড করুন।",
+    step5Title:"আবেদন জমা দিন",
+    step5Text:"তথ্য পরীক্ষা করে Submit চাপুন।",
+
+    website:"🌐 সরকারি ওয়েবসাইট খুলুন",
+    complete:"✅ আমি শেষ করেছি",
+
+    successTitle:"খুব ভালো! 🎉",
+    successText:"আপনি প্রক্রিয়াটি সম্পূর্ণ করেছেন। এখন আপনি নিজেই এই ধরনের সরকারি পরিষেবা ব্যবহার করতে পারবেন।"
+  },
+
+
+  mr: {
+    name:"मराठी",
+    speech:"mr-IN",
+
+    title:"तुमचा सरकारी मदत साथीदार",
+    subtitle:"सरकारी योजनांबद्दल जाणून घेण्यासाठी बोला किंवा लिहा.",
+
+    voice:"बोलण्यासाठी मायक्रोफोन दाबा",
+    placeholder:"येथे लिहा...",
+    send:"पाठवा",
+
+    welcome:"नमस्कार 👋<br><br>मी <b>Sakhi AI</b> आहे.<br>मी तुम्हाला सरकारी योजना आणि सेवा सोप्या पद्धतीने समजून घेण्यास मदत करेन.<br><br>तुम्हाला सरकारी मदत हवी आहे का?",
+
+    schemeTitle:"🌱 तुमच्यासाठी सरकारी योजना",
+    schemeName:"महिलांसाठी सरकारी मदत",
+    schemeDescription:"तुमच्या माहितीच्या आधारे ही सरकारी सेवा तुमच्यासाठी योग्य असू शकते.",
+
+    whoTitle:"कोणासाठी?",
+    whoText:"पात्र महिलांसाठी.",
+
+    benefitTitle:"काय मिळेल?",
+    benefitText:"सरकारी योजनेची मदत.",
+
+    documentTitle:"आवश्यक कागदपत्रे",
+    documentText:"ओळखपत्र, बँक खाते इत्यादी.",
+
+    apply:"👉 अर्ज कसा करायचा?",
+
+    stepsTitle:"📝 चला अर्ज करूया",
+    stepsDescription:"काळजी करू नका. प्रत्येक पायरीवर मी तुम्हाला मदत करेन.",
+
+    step1Title:"सरकारी वेबसाइट उघडा",
+    step1Text:"खालील बटण दाबा.",
+    step2Title:"अर्ज निवडा",
+    step2Text:"'Apply' बटण निवडा.",
+    step3Title:"तुमची माहिती भरा",
+    step3Text:"नाव, मोबाइल नंबर आणि आवश्यक माहिती भरा.",
+    step4Title:"कागदपत्रे जमा करा",
+    step4Text:"आवश्यक कागदपत्रांचे फोटो अपलोड करा.",
+    step5Title:"अर्ज जमा करा",
+    step5Text:"माहिती तपासून Submit दाबा.",
+
+    website:"🌐 सरकारी वेबसाइट उघडा",
+    complete:"✅ मी पूर्ण केले",
+
+    successTitle:"खूप छान! 🎉",
+    successText:"तुम्ही प्रक्रिया पूर्ण केली आहे. आता तुम्ही अशा सरकारी सेवा स्वतः वापरू शकता."
+  },
+
+
+  gu: {
+    name:"ગુજરાતી",
+    speech:"gu-IN",
+
+    title:"તમારો સરકારી સહાય સાથી",
+    subtitle:"સરકારી યોજનાઓ વિશે જાણવા માટે બોલો અથવા લખો.",
+
+    voice:"બોલવાનું શરૂ કરવા માઇક દબાવો",
+    placeholder:"અહીં લખો...",
+    send:"મોકલો",
+
+    welcome:"નમસ્તે 👋<br><br>હું <b>Sakhi AI</b> છું.<br>હું તમને સરકારી યોજનાઓ અને સેવાઓ સરળતાથી સમજવામાં મદદ કરીશ.<br><br>શું તમને સરકારી મદદ જોઈએ છે?",
+
+    schemeTitle:"🌱 તમારા માટે સરકારી યોજના",
+    schemeName:"મહિલાઓ માટે સરકારી સહાય",
+    schemeDescription:"તમારી માહિતીના આધારે આ સરકારી સેવા તમારા માટે યોગ્ય હોઈ શકે છે.",
+
+    whoTitle:"કોના માટે?",
+    whoText:"પાત્ર મહિલાઓ માટે.",
+
+    benefitTitle:"શું મળશે?",
+    benefitText:"સરકારી યોજનાની સહાય.",
+
+    documentTitle:"જરૂરી દસ્તાવેજો",
+    documentText:"ઓળખપત્ર, બેંક ખાતું વગેરે.",
+
+    apply:"👉 અરજી કેવી રીતે કરવી?",
+
+    stepsTitle:"📝 ચાલો અરજી કરીએ",
+    stepsDescription:"ચિંતા કરશો નહીં. દરેક પગલામાં હું તમારી મદદ કરીશ.",
+
+    step1Title:"સરકારી વેબસાઇટ ખોલો",
+    step1Text:"નીચેનું બટન દબાવો.",
+    step2Title:"અરજી પસંદ કરો",
+    step2Text:"'Apply' બટન પસંદ કરો.",
+    step3Title:"તમારી માહિતી ભરો",
+    step3Text:"નામ, મોબાઇલ નંબર અને જરૂરી માહિતી ભરો.",
+    step4Title:"દસ્તાવેજો આપો",
+    step4Text:"જરૂરી દસ્તાવેજોના ફોટા અપલોડ કરો.",
+    step5Title:"અરજી મોકલો",
+    step5Text:"માહિતી તપાસીને Submit દબાવો.",
+
+    website:"🌐 સરકારી વેબસાઇટ ખોલો",
+    complete:"✅ મેં પૂર્ણ કર્યું",
+
+    successTitle:"ખૂબ સારું! 🎉",
+    successText:"તમે પ્રક્રિયા પૂર્ણ કરી છે. હવે તમે આવી સરકારી સેવાઓ જાતે ઉપયોગ કરી શકો છો."
+  },
+
+
+  kn: {
+    name:"ಕನ್ನಡ",
+    speech:"kn-IN",
+
+    title:"ನಿಮ್ಮ ಸರ್ಕಾರಿ ಸಹಾಯ ಸ್ನೇಹಿತ",
+    subtitle:"ಸರ್ಕಾರಿ ಯೋಜನೆಗಳ ಬಗ್ಗೆ ತಿಳಿಯಲು ಮಾತನಾಡಿ ಅಥವಾ ಬರೆಯಿರಿ.",
+
+    voice:"ಮಾತನಾಡಲು ಮೈಕ್ ಒತ್ತಿರಿ",
+    placeholder:"ಇಲ್ಲಿ ಬರೆಯಿರಿ...",
+    send:"ಕಳುಹಿಸಿ",
+
+    welcome:"ನಮಸ್ಕಾರ 👋<br><br>ನಾನು <b>Sakhi AI</b>.<br>ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು ಮತ್ತು ಸೇವೆಗಳನ್ನು ಸುಲಭವಾಗಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ನಾನು ನಿಮಗೆ ಸಹಾಯ ಮಾಡುತ್ತೇನೆ.<br><br>ನಿಮಗೆ ಸರ್ಕಾರಿ ಸಹಾಯ ಬೇಕೇ?",
+
+    schemeTitle:"🌱 ನಿಮಗೆ ಸೂಕ್ತವಾದ ಸರ್ಕಾರಿ ಯೋಜನೆ",
+    schemeName:"ಮಹಿಳೆಯರಿಗೆ ಸರ್ಕಾರಿ ಸಹಾಯ",
+    schemeDescription:"ನಿಮ್ಮ ಮಾಹಿತಿಯ ಆಧಾರದ ಮೇಲೆ ಈ ಸರ್ಕಾರಿ ಸೇವೆ ನಿಮಗೆ ಸೂಕ್ತವಾಗಿರಬಹುದು.",
+
+    whoTitle:"ಯಾರಿಗೆ?",
+    whoText:"ಅರ್ಹ ಮಹಿಳೆಯರಿಗೆ.",
+
+    benefitTitle:"ಏನು ಸಿಗುತ್ತದೆ?",
+    benefitText:"ಸರ್ಕಾರಿ ಯೋಜನೆಯ ಸಹಾಯ.",
+
+    documentTitle:"ಅಗತ್ಯ ದಾಖಲೆಗಳು",
+    documentText:"ಗುರುತಿನ ಚೀಟಿ, ಬ್ಯಾಂಕ್ ಖಾತೆ ಇತ್ಯಾದಿ.",
+
+    apply:"👉 ಅರ್ಜಿ ಹೇಗೆ ಸಲ್ಲಿಸುವುದು?",
+
+    stepsTitle:"📝 ಹಂತ ಹಂತವಾಗಿ ಅರ್ಜಿ ಸಲ್ಲಿಸೋಣ",
+    stepsDescription:"ಚಿಂತಿಸಬೇಡಿ. ಪ್ರತಿಯೊಂದು ಹಂತದಲ್ಲೂ ನಾನು ನಿಮಗೆ ಸಹಾಯ ಮಾಡುತ್ತೇನೆ.",
+
+    step1Title:"ಸರ್ಕಾರಿ ವೆಬ್‌ಸೈಟ್ ತೆರೆಯಿರಿ",
+    step1Text:"ಕೆಳಗಿನ ಬಟನ್ ಒತ್ತಿರಿ.",
+    step2Title:"ಅರ್ಜಿಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+    step2Text:"'Apply' ಬಟನ್ ಆಯ್ಕೆಮಾಡಿ.",
+    step3Title:"ನಿಮ್ಮ ಮಾಹಿತಿಯನ್ನು ನಮೂದಿಸಿ",
+    step3Text:"ಹೆಸರು, ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಮತ್ತು ಅಗತ್ಯ ಮಾಹಿತಿಯನ್ನು ನಮೂದಿಸಿ.",
+    step4Title:"ದಾಖಲೆಗಳನ್ನು ಸಲ್ಲಿಸಿ",
+    step4Text:"ಅಗತ್ಯ ದಾಖಲೆಗಳ ಫೋಟೋಗಳನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ.",
+    step5Title:"ಅರ್ಜಿಯನ್ನು ಸಲ್ಲಿಸಿ",
+    step5Text:"ಮಾಹಿತಿಯನ್ನು ಪರಿಶೀಲಿಸಿ Submit ಒತ್ತಿರಿ.",
+
+    website:"🌐 ಸರ್ಕಾರಿ ವೆಬ್‌ಸೈಟ್ ತೆರೆಯಿರಿ",
+    complete:"✅ ನಾನು ಮುಗಿಸಿದ್ದೇನೆ",
+
+    successTitle:"ತುಂಬಾ ಚೆನ್ನಾಗಿದೆ! 🎉",
+    successText:"ನೀವು ಪ್ರಕ್ರಿಯೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಿದ್ದೀರಿ. ಈಗ ಇಂತಹ ಸರ್ಕಾರಿ ಸೇವೆಗಳನ್ನು ನೀವೇ ಬಳಸಬಹುದು."
+  },
+
+
+  ml: {
+    name:"മലയാളം",
+    speech:"ml-IN",
+
+    title:"നിങ്ങളുടെ സർക്കാർ സഹായ സുഹൃത്ത്",
+    subtitle:"സർക്കാർ പദ്ധതികളെക്കുറിച്ച് അറിയാൻ സംസാരിക്കുകയോ എഴുതുകയോ ചെയ്യുക.",
+
+    voice:"സംസാരിക്കാൻ മൈക്ക് അമർത്തുക",
+    placeholder:"ഇവിടെ എഴുതുക...",
+    send:"അയയ്ക്കുക",
+
+    welcome:"നമസ്കാരം 👋<br><br>ഞാൻ <b>Sakhi AI</b> ആണ്.<br>സർക്കാർ പദ്ധതികളും സേവനങ്ങളും എളുപ്പത്തിൽ മനസ്സിലാക്കാൻ ഞാൻ നിങ്ങളെ സഹായിക്കും.<br><br>നിങ്ങൾക്ക് സർക്കാർ സഹായം ആവശ്യമുണ്ടോ?",
+
+    schemeTitle:"🌱 നിങ്ങൾക്ക് അനുയോജ്യമായ സർക്കാർ പദ്ധതി",
+    schemeName:"സ്ത്രീകൾക്കുള്ള സർക്കാർ സഹായം",
+    schemeDescription:"നിങ്ങളുടെ വിവരങ്ങളുടെ അടിസ്ഥാനത്തിൽ ഈ സർക്കാർ സേവനം നിങ്ങൾക്ക് അനുയോജ്യമായേക്കാം.",
+
+    whoTitle:"ആർക്കാണ്?",
+    whoText:"യോഗ്യരായ സ്ത്രീകൾക്ക്.",
+
+    benefitTitle:"എന്ത് ലഭിക്കും?",
+    benefitText:"സർക്കാർ പദ്ധതിയുടെ സഹായം.",
+
+    documentTitle:"ആവശ്യമായ രേഖകൾ",
+    documentText:"തിരിച്ചറിയൽ രേഖ, ബാങ്ക് അക്കൗണ്ട് തുടങ്ങിയവ.",
+
+    apply:"👉 എങ്ങനെ അപേക്ഷിക്കാം?",
+
+    stepsTitle:"📝 നമുക്ക് അപേക്ഷിക്കാം",
+    stepsDescription:"വിഷമിക്കേണ്ട. ഓരോ ഘട്ടത്തിലും ഞാൻ നിങ്ങളെ സഹായിക്കും.",
+
+    step1Title:"സർക്കാർ വെബ്സൈറ്റ് തുറക്കുക",
+    step1Text:"താഴെയുള്ള ബട്ടൺ അമർത്തുക.",
+    step2Title:"അപേക്ഷ തിരഞ്ഞെടുക്കുക",
+    step2Text:"'Apply' ബട്ടൺ തിരഞ്ഞെടുക്കുക.",
+    step3Title:"നിങ്ങളുടെ വിവരങ്ങൾ നൽകുക",
+    step3Text:"പേര്, മൊബൈൽ നമ്പർ, ആവശ്യമായ വിവരങ്ങൾ നൽകുക.",
+    step4Title:"രേഖകൾ സമർപ്പിക്കുക",
+    step4Text:"ആവശ്യമായ രേഖകളുടെ ഫോട്ടോകൾ അപ്‌ലോഡ് ചെയ്യുക.",
+    step5Title:"അപേക്ഷ സമർപ്പിക്കുക",
+    step5Text:"വിവരങ്ങൾ പരിശോധിച്ച് Submit അമർത്തുക.",
+
+    website:"🌐 സർക്കാർ വെബ്സൈറ്റ് തുറക്കുക",
+    complete:"✅ ഞാൻ പൂർത്തിയാക്കി",
+
+    successTitle:"വളരെ നന്നായി! 🎉",
+    successText:"നിങ്ങൾ നടപടിക്രമം പൂർത്തിയാക്കി. ഇനി ഇത്തരം സർക്കാർ സേവനങ്ങൾ നിങ്ങൾക്ക് സ്വയം ഉപയോഗിക്കാം."
+  },
+
+
+  pa: {
+    name:"ਪੰਜਾਬੀ",
+    speech:"pa-IN",
+
+    title:"ਤੁਹਾਡਾ ਸਰਕਾਰੀ ਸਹਾਇਤਾ ਸਾਥੀ",
+    subtitle:"ਸਰਕਾਰੀ ਯੋਜਨਾਵਾਂ ਬਾਰੇ ਜਾਣਨ ਲਈ ਬੋਲੋ ਜਾਂ ਲਿਖੋ।",
+
+    voice:"ਬੋਲਣ ਲਈ ਮਾਈਕ ਦਬਾਓ",
+    placeholder:"ਇੱਥੇ ਲਿਖੋ...",
+    send:"ਭੇਜੋ",
+
+    welcome:"ਸਤ ਸ੍ਰੀ ਅਕਾਲ 👋<br><br>ਮੈਂ <b>Sakhi AI</b> ਹਾਂ।<br>ਮੈਂ ਤੁਹਾਨੂੰ ਸਰਕਾਰੀ ਯੋਜਨਾਵਾਂ ਅਤੇ ਸੇਵਾਵਾਂ ਨੂੰ ਆਸਾਨੀ ਨਾਲ ਸਮਝਣ ਵਿੱਚ ਮਦਦ ਕਰਾਂਗਾ।<br><br>ਕੀ ਤੁਹਾਨੂੰ ਸਰਕਾਰੀ ਮਦਦ ਚਾਹੀਦੀ ਹੈ?",
+
+    schemeTitle:"🌱 ਤੁਹਾਡੇ ਲਈ ਸਰਕਾਰੀ ਯੋਜਨਾ",
+    schemeName:"ਔਰਤਾਂ ਲਈ ਸਰਕਾਰੀ ਸਹਾਇਤਾ",
+    schemeDescription:"ਤੁਹਾਡੀ ਜਾਣਕਾਰੀ ਦੇ ਆਧਾਰ 'ਤੇ ਇਹ ਸਰਕਾਰੀ ਸੇਵਾ ਤੁਹਾਡੇ ਲਈ ਢੁਕਵੀਂ ਹੋ ਸਕਦੀ ਹੈ।",
+
+    whoTitle:"ਕਿਸ ਲਈ?",
+    whoText:"ਯੋਗ ਔਰਤਾਂ ਲਈ.",
+
+    benefitTitle:"ਕੀ ਮਿਲੇਗਾ?",
+    benefitText:"ਸਰਕਾਰੀ ਯੋਜਨਾ ਦੀ ਸਹਾਇਤਾ.",
+
+    documentTitle:"ਲੋੜੀਂਦੇ ਦਸਤਾਵੇਜ਼",
+    documentText:"ਪਛਾਣ ਪੱਤਰ, ਬੈਂਕ ਖਾਤਾ ਆਦਿ.",
+
+    apply:"👉 ਅਰਜ਼ੀ ਕਿਵੇਂ ਦੇਣੀ ਹੈ?",
+
+    stepsTitle:"📝 ਆਓ ਅਰਜ਼ੀ ਕਰੀਏ",
+    stepsDescription:"ਚਿੰਤਾ ਨਾ ਕਰੋ। ਮੈਂ ਹਰ ਕਦਮ 'ਤੇ ਤੁਹਾਡੀ ਮਦਦ ਕਰਾਂਗਾ।",
+
+    step1Title:"ਸਰਕਾਰੀ ਵੈੱਬਸਾਈਟ ਖੋਲ੍ਹੋ",
+    step1Text:"ਹੇਠਾਂ ਦਿੱਤਾ ਬਟਨ ਦਬਾਓ.",
+    step2Title:"ਅਰਜ਼ੀ ਚੁਣੋ",
+    step2Text:"'Apply' ਬਟਨ ਚੁਣੋ.",
+    step3Title:"ਆਪਣੀ ਜਾਣਕਾਰੀ ਭਰੋ",
+    step3Text:"ਨਾਮ, ਮੋਬਾਈਲ ਨੰਬਰ ਅਤੇ ਲੋੜੀਂਦੀ ਜਾਣਕਾਰੀ ਭਰੋ.",
+    step4Title:"ਦਸਤਾਵੇਜ਼ ਜਮ੍ਹਾਂ ਕਰੋ",
+    step4Text:"ਲੋੜੀਂਦੇ ਦਸਤਾਵੇਜ਼ਾਂ ਦੀਆਂ ਤਸਵੀਰਾਂ ਅੱਪਲੋਡ ਕਰੋ.",
+    step5Title:"ਅਰਜ਼ੀ ਜਮ੍ਹਾਂ ਕਰੋ",
+    step5Text:"ਜਾਣਕਾਰੀ ਜਾਂਚ ਕੇ Submit ਦਬਾਓ.",
+
+    website:"🌐 ਸਰਕਾਰੀ ਵੈੱਬਸਾਈਟ ਖੋਲ੍ਹੋ",
+    complete:"✅ ਮੈਂ ਪੂਰਾ ਕਰ ਲਿਆ",
+
+    successTitle:"ਬਹੁਤ ਵਧੀਆ! 🎉",
+    successText:"ਤੁਸੀਂ ਪ੍ਰਕਿਰਿਆ ਪੂਰੀ ਕਰ ਲਈ ਹੈ। ਹੁਣ ਤੁਸੀਂ ਅਜਿਹੀਆਂ ਸਰਕਾਰੀ ਸੇਵਾਵਾਂ ਖੁਦ ਵਰਤ ਸਕਦੇ ਹੋ।"
+  },
+
+
+  or: {
+    name:"ଓଡ଼ିଆ",
+    speech:"or-IN",
+
+    title:"ଆପଣଙ୍କ ସରକାରୀ ସହାୟତା ସାଥୀ",
+    subtitle:"ସରକାରୀ ଯୋଜନା ବିଷୟରେ ଜାଣିବା ପାଇଁ କୁହନ୍ତୁ କିମ୍ବା ଲେଖନ୍ତୁ।",
+
+    voice:"କଥା ଆରମ୍ଭ କରିବାକୁ ମାଇକ୍ ଦବାନ୍ତୁ",
+    placeholder:"ଏଠାରେ ଲେଖନ୍ତୁ...",
+    send:"ପଠାନ୍ତୁ",
+
+    welcome:"ନମସ୍କାର 👋<br><br>ମୁଁ <b>Sakhi AI</b>।<br>ସରକାରୀ ଯୋଜନା ଏବଂ ସେବା ବୁଝିବାରେ ମୁଁ ଆପଣଙ୍କୁ ସାହାଯ୍ୟ କରିବି।<br><br>ଆପଣଙ୍କୁ ସରକାରୀ ସହାୟତା ଦରକାର କି?",
+
+    schemeTitle:"🌱 ଆପଣଙ୍କ ପାଇଁ ସରକାରୀ ଯୋଜନା",
+    schemeName:"ମହିଳାମାନଙ୍କ ପାଇଁ ସରକାରୀ ସହାୟତା",
+    schemeDescription:"ଆପଣଙ୍କ ସୂଚନା ଆଧାରରେ ଏହି ସରକାରୀ ସେବା ଆପଣଙ୍କ ପାଇଁ ଉପଯୁକ୍ତ ହୋଇପାରେ।",
+
+    whoTitle:"କାହା ପାଇଁ?",
+    whoText:"ଯୋଗ୍ୟ ମହିଳାମାନଙ୍କ ପାଇଁ।",
+
+    benefitTitle:"କଣ ମିଳିବ?",
+    benefitText:"ସରକାରୀ ଯୋଜନାର ସହାୟତା।",
+
+    documentTitle:"ଆବଶ୍ୟକ ଦଲିଲ",
+    documentText:"ପରିଚୟ ପତ୍ର, ବ୍ୟାଙ୍କ ଖାତା ଇତ୍ୟାଦି।",
+
+    apply:"👉 କିପରି ଆବେଦନ କରିବେ?",
+
+    stepsTitle:"📝 ପଦକ୍ରମରେ ଆବେଦନ କରନ୍ତୁ",
+    stepsDescription:"ଚିନ୍ତା କରନ୍ତୁ ନାହିଁ। ପ୍ରତ୍ୟେକ ପଦକ୍ରମରେ ମୁଁ ଆପଣଙ୍କୁ ସାହାଯ୍ୟ କରିବି।",
+
+    step1Title:"ସରକାରୀ ୱେବସାଇଟ୍ ଖୋଲନ୍ତୁ",
+    step1Text:"ନିମ୍ନର ବଟନ୍ ଦବାନ୍ତୁ।",
+    step2Title:"ଆବେଦନ ବାଛନ୍ତୁ",
+    step2Text:"'Apply' ବଟନ୍ ବାଛନ୍ତୁ।",
+    step3Title:"ଆପଣଙ୍କ ସୂଚନା ଦିଅନ୍ତୁ",
+    step3Text:"ନାମ, ମୋବାଇଲ୍ ନମ୍ବର ଏବଂ ଆବଶ୍ୟକ ସୂଚନା ଦିଅନ୍ତୁ।",
+    step4Title:"ଦଲିଲ ଦାଖଲ କରନ୍ତୁ",
+    step4Text:"ଆବଶ୍ୟକ ଦଲିଲର ଫଟୋ ଅପଲୋଡ୍ କରନ୍ତୁ।",
+    step5Title:"ଆବେଦନ ଦାଖଲ କରନ୍ତୁ",
+    step5Text:"ସୂଚନା ଯାଞ୍ଚ କରି Submit ଦବାନ୍ତୁ।",
+
+    website:"🌐 ସରକାରୀ ୱେବସାଇଟ୍ ଖୋଲନ୍ତୁ",
+    complete:"✅ ମୁଁ ସମାପ୍ତ କରିଛି",
+
+    successTitle:"ବହୁତ ଭଲ! 🎉",
+    successText:"ଆପଣ ପ୍ରକ୍ରିୟା ସମାପ୍ତ କରିଛନ୍ତି। ଏବେ ଆପଣ ଏପରି ସରକାରୀ ସେବା ନିଜେ ବ୍ୟବହାର କରିପାରିବେ।"
+  },
+
+
+  as: {
+    name:"অসমীয়া",
+    speech:"as-IN",
+
+    title:"আপোনাৰ চৰকাৰী সহায়ক",
+    subtitle:"চৰকাৰী আঁচনিৰ বিষয়ে জানিবলৈ কথা কওক বা লিখক।",
+
+    voice:"কথা ক'বলৈ মাইক্ৰ'ফোন টিপক",
+    placeholder:"ইয়াত লিখক...",
+    send:"পঠিয়াওক",
+
+    welcome:"নমস্কাৰ 👋<br><br>মই <b>Sakhi AI</b>।<br>চৰকাৰী আঁচনি আৰু সেৱাসমূহ সহজে বুজিবলৈ মই আপোনাক সহায় কৰিম।<br><br>আপোনাক চৰকাৰী সহায়ৰ প্ৰয়োজন আছে নেকি?",
+
+    schemeTitle:"🌱 আপোনাৰ বাবে চৰকাৰী আঁচনি",
+    schemeName:"মহিলাৰ বাবে চৰকাৰী সহায়",
+    schemeDescription:"আপোনাৰ তথ্যৰ ভিত্তিত এই চৰকাৰী সেৱা আপোনাৰ বাবে উপযুক্ত হ'ব পাৰে।",
+
+    whoTitle:"কাৰ বাবে?",
+    whoText:"যোগ্য মহিলাৰ বাবে।",
+
+    benefitTitle:"কি পোৱা যাব?",
+    benefitText:"চৰকাৰী আঁচনিৰ সহায়।",
+
+    documentTitle:"প্ৰয়োজনীয় নথি",
+    documentText:"পৰিচয় পত্ৰ, বেংক একাউণ্ট আদি।",
+
+    apply:"👉 কেনেকৈ আবেদন কৰিব?",
+
+    stepsTitle:"📝 ধাপে ধাপে আবেদন কৰক",
+    stepsDescription:"চিন্তা নকৰিব। প্ৰতিটো ধাপত মই আপোনাক সহায় কৰিম।",
+
+    step1Title:"চৰকাৰী ৱেবছাইট খোলক",
+    step1Text:"তলৰ বুটামটো টিপক।",
+    step2Title:"আবেদন বাছনি কৰক",
+    step2Text:"'Apply' বুটামটো বাছনি কৰক।",
+    step3Title:"আপোনাৰ তথ্য দিয়ক",
+    step3Text:"নাম, মোবাইল নম্বৰ আৰু প্ৰয়োজনীয় তথ্য দিয়ক।",
+    step4Title:"নথি জমা দিয়ক",
+    step4Text:"প্ৰয়োজনীয় নথিৰ ফটো আপলোড কৰক।",
+    step5Title:"আবেদন জমা দিয়ক",
+    step5Text:"তথ্য পৰীক্ষা কৰি Submit টিপক।",
+
+    website:"🌐 চৰকাৰী ৱেবছাইট খোলক",
+    complete:"✅ মই সম্পূৰ্ণ কৰিলোঁ",
+
+    successTitle:"বৰ ভাল! 🎉",
+    successText:"আপুনি প্ৰক্ৰিয়াটো সম্পূৰ্ণ কৰিছে। এতিয়া আপুনি এনে চৰকাৰী সেৱা নিজে ব্যৱহাৰ কৰিব পাৰে।"
+  },
+
+
+  ne: {
+    name:"नेपाली",
+    speech:"ne-IN",
+
+    title:"तपाईंको सरकारी सहायता साथी",
+    subtitle:"सरकारी योजनाहरूको बारेमा जान्न बोल्नुहोस् वा लेख्नुहोस्।",
+
+    voice:"बोल्न सुरु गर्न माइक्रोफोन थिच्नुहोस्",
+    placeholder:"यहाँ लेख्नुहोस्...",
+    send:"पठाउनुहोस्",
+
+    welcome:"नमस्ते 👋<br><br>म <b>Sakhi AI</b> हुँ।<br>म तपाईंलाई सरकारी योजना र सेवाहरू सजिलै बुझ्न मद्दत गर्छु।<br><br>तपाईंलाई सरकारी सहायता चाहिन्छ?",
+
+    schemeTitle:"🌱 तपाईंको लागि सरकारी योजना",
+    schemeName:"महिलाहरूका लागि सरकारी सहायता",
+    schemeDescription:"तपाईंको जानकारीका आधारमा यो सरकारी सेवा तपाईंका लागि उपयुक्त हुन सक्छ।",
+
+    whoTitle:"कसका लागि?",
+    whoText:"योग्य महिलाहरूका लागि।",
+
+    benefitTitle:"के पाइन्छ?",
+    benefitText:"सरकारी योजनाको सहायता।",
+
+    documentTitle:"आवश्यक कागजात",
+    documentText:"परिचय पत्र, बैंक खाता आदि।",
+
+    apply:"👉 कसरी आवेदन दिने?",
+
+    stepsTitle:"📝 चरणबद्ध रूपमा आवेदन गरौं",
+    stepsDescription:"चिन्ता नगर्नुहोस्। म हरेक चरणमा तपाईंलाई मद्दत गर्नेछु।",
+
+    step1Title:"सरकारी वेबसाइट खोल्नुहोस्",
+    step1Text:"तलको बटन थिच्नुहोस्।",
+    step2Title:"आवेदन छान्नुहोस्",
+    step2Text:"'Apply' बटन छान्नुहोस्।",
+    step3Title:"आफ्नो जानकारी भर्नुहोस्",
+    step3Text:"नाम, मोबाइल नम्बर र आवश्यक जानकारी भर्नुहोस्।",
+    step4Title:"कागजात पेश गर्नुहोस्",
+    step4Text:"आवश्यक कागजातका फोटोहरू अपलोड गर्नुहोस्।",
+    step5Title:"आवेदन पेश गर्नुहोस्",
+    step5Text:"जानकारी जाँच गरेर Submit थिच्नुहोस्।",
+
+    website:"🌐 सरकारी वेबसाइट खोल्नुहोस्",
+    complete:"✅ मैले पूरा गरेँ",
+
+    successTitle:"धेरै राम्रो! 🎉",
+    successText:"तपाईंले प्रक्रिया पूरा गर्नुभयो। अब तपाईं यस्ता सरकारी सेवाहरू आफैं प्रयोग गर्न सक्नुहुन्छ।"
+  },
+
+
+  ur: {
+    name:"اردو",
+    speech:"ur-IN",
+
+    title:"آپ کا سرکاری مددگار",
+    subtitle:"سرکاری اسکیموں کے بارے میں جاننے کے لیے بولیں یا لکھیں۔",
+
+    voice:"بولنے کے لیے مائیک دبائیں",
+    placeholder:"یہاں لکھیں...",
+    send:"بھیجیں",
+
+    welcome:"السلام علیکم 👋<br><br>میں <b>Sakhi AI</b> ہوں۔<br>میں آپ کو سرکاری اسکیموں اور خدمات کو آسانی سے سمجھنے میں مدد کروں گا۔<br><br>کیا آپ کو سرکاری مدد چاہیے؟",
+
+    schemeTitle:"🌱 آپ کے لیے سرکاری اسکیم",
+    schemeName:"خواتین کے لیے سرکاری مدد",
+    schemeDescription:"آپ کی معلومات کی بنیاد پر یہ سرکاری خدمت آپ کے لیے مناسب ہو سکتی ہے۔",
+
+    whoTitle:"کس کے لیے؟",
+    whoText:"اہل خواتین کے لیے۔",
+
+    benefitTitle:"کیا ملے گا؟",
+    benefitText:"سرکاری اسکیم کی مدد۔",
+
+    documentTitle:"ضروری دستاویزات",
+    documentText:"شناختی کارڈ، بینک اکاؤنٹ وغیرہ۔",
+
+    apply:"👉 درخواست کیسے دیں؟",
+
+    stepsTitle:"📝 مرحلہ وار درخواست دیں",
+    stepsDescription:"فکر نہ کریں۔ میں ہر مرحلے میں آپ کی مدد کروں گا۔",
+
+    step1Title:"سرکاری ویب سائٹ کھولیں",
+    step1Text:"نیچے دیا گیا بٹن دبائیں۔",
+    step2Title:"درخواست منتخب کریں",
+    step2Text:"'Apply' بٹن منتخب کریں۔",
+    step3Title:"اپنی معلومات درج کریں",
+    step3Text:"نام، موبائل نمبر اور مطلوبہ معلومات درج کریں۔",
+    step4Title:"دستاویزات جمع کریں",
+    step4Text:"ضروری دستاویزات کی تصاویر اپ لوڈ کریں۔",
+    step5Title:"درخواست جمع کریں",
+    step5Text:"معلومات چیک کرکے Submit دبائیں۔",
+
+    website:"🌐 سرکاری ویب سائٹ کھولیں",
+    complete:"✅ میں نے مکمل کر لیا",
+
+    successTitle:"بہت اچھا! 🎉",
+    successText:"آپ نے عمل مکمل کر لیا ہے۔ اب آپ ایسی سرکاری خدمات خود استعمال کر سکتے ہیں۔"
+  },
+
+
+  kok: {
+    name:"कोंकणी",
+    speech:"kok-IN",
+
+    title:"तुमचो सरकारी मदत सोबती",
+    subtitle:"सरकारी येवजणां विशीं जाणून घेवपाक उलयात वा बरयात.",
+
+    voice:"उलयप सुरू करपाक मायक दामात",
+    placeholder:"हांगा बरयात...",
+    send:"धाडात",
+
+    welcome:"नमस्कार 👋<br><br>हांव <b>Sakhi AI</b>।<br>सरकारी येवजणां आनी सेवा सोप्या पद्दतीन समजपाक हांव तुमका मदत करतलों।<br><br>तुमका सरकारी मदत जाय?",
+
+    schemeTitle:"🌱 तुमच्या खातीर सरकारी येवजण",
+    schemeName:"बायलां खातीर सरकारी मदत",
+    schemeDescription:"तुमच्या माहिती प्रमाणें ही सरकारी सेवा तुमच्या खातीर योग्य आसूं येता.",
+
+    whoTitle:"खातीर कोण?",
+    whoText:"पात्र बायलां खातीर.",
+
+    benefitTitle:"काय मेळटा?",
+    benefitText:"सरकारी येवजणेची मदत.",
+
+    documentTitle:"जाय आशिल्ली कागदपत्रां",
+    documentText:"ओळख पत्र, बँक खातें आदी.",
+
+    apply:"👉 अर्ज कितें करचें?",
+
+    stepsTitle:"📝 पावलां पावलांनी अर्ज करात",
+    stepsDescription:"चिंता करु नाकात. दर एका पावल्यार हांव तुमका मदत करतलों.",
+
+    step1Title:"सरकारी संकेतस्थळ उगडात",
+    step1Text:"सकयलो बटण दामात.",
+    step2Title:"अर्ज निवडात",
+    step2Text:"'Apply' बटण निवडात.",
+    step3Title:"तुमची माहिती दियात",
+    step3Text:"नांव, मोबायल नंबर आनी जाय ती माहिती दियात.",
+    step4Title:"कागदपत्रां दियात",
+    step4Text:"जाय आशिल्ल्या कागदपत्रांचीं फोटो अपलोड करात.",
+    step5Title:"अर्ज धाडात",
+    step5Text:"माहिती तपासून Submit दामात.",
+
+    website:"🌐 सरकारी संकेतस्थळ उगडात",
+    complete:"✅ हांव पूर्ण केलां",
+
+    successTitle:"खूप बरें! 🎉",
+    successText:"तुमी प्रक्रिया पूर्ण केल्या. आतां तुमी अशे सरकारी सेवा स्वतः वापरू शकतात."
+  },
+
+
+  mai: {
+    name:"मैथिली",
+    speech:"mai-IN",
+
+    title:"अहाँक सरकारी सहायता साथी",
+    subtitle:"सरकारी योजनाक बारेमे जनबाक लेल बाजू वा लिखू।",
+
+    voice:"बाजय शुरू करबाक लेल माइक दबाउ",
+    placeholder:"एतय लिखू...",
+    send:"पठाउ",
+
+    welcome:"नमस्कार 👋<br><br>हम <b>Sakhi AI</b> छी।<br>हम अहाँके सरकारी योजना आ सेवाके सरल तरीका सँ बुझयमे मदद करब।<br><br>अहाँके सरकारी सहायता चाही?",
+
+    schemeTitle:"🌱 अहाँक लेल सरकारी योजना",
+    schemeName:"महिलाक लेल सरकारी सहायता",
+    schemeDescription:"अहाँक जानकारीक आधार पर ई सरकारी सेवा अहाँक लेल उपयोगी भ' सकैत अछि।",
+
+    whoTitle:"केकर लेल?",
+    whoText:"योग्य महिलाक लेल।",
+
+    benefitTitle:"की भेटत?",
+    benefitText:"सरकारी योजनाक सहायता।",
+
+    documentTitle:"जरूरी कागज",
+    documentText:"पहचान पत्र, बैंक खाता आदि।",
+
+    apply:"👉 आवेदन कोना करब?",
+
+    stepsTitle:"📝 कदम-कदम पर आवेदन करी",
+    stepsDescription:"चिन्ता नहि करू। प्रत्येक कदम पर हम अहाँक सहायता करब।",
+
+    step1Title:"सरकारी वेबसाइट खोलू",
+    step1Text:"नीचाँक बटन दबाउ।",
+    step2Title:"आवेदन चुनू",
+    step2Text:"'Apply' बटन चुनू।",
+    step3Title:"अपन जानकारी भरू",
+    step3Text:"नाम, मोबाइल नंबर आ आवश्यक जानकारी भरू।",
+    step4Title:"कागज जमा करू",
+    step4Text:"जरूरी कागजक फोटो अपलोड करू।",
+    step5Title:"आवेदन जमा करू",
+    step5Text:"जानकारी जाँचि Submit दबाउ।",
+
+    website:"🌐 सरकारी वेबसाइट खोलू",
+    complete:"✅ हम पूरा क' लेलहुँ",
+
+    successTitle:"बहुत नीक! 🎉",
+    successText:"अहाँ प्रक्रिया पूरा क' लेलहुँ। आब अहाँ एहन सरकारी सेवा अपने उपयोग क' सकैत छी।"
+  },
+
+
+  doi: {
+    name:"डोगरी",
+    speech:"doi-IN",
+
+    title:"तुंदा सरकारी मददगार साथी",
+    subtitle:"सरकारी योजनाएं दे बारे च जानकारी लेई बोलो जां लिखो।",
+
+    voice:"बोलना शुरू करने लेई माइक दबाओ",
+    placeholder:"इत्थे लिखो...",
+    send:"भेजो",
+
+    welcome:"नमस्कार 👋<br><br>मैं <b>Sakhi AI</b> आं।<br>मैं तुसेंगी सरकारी योजनाएं ते सेवाएं गी आसानी कन्नै समझने च मदद करांगा।<br><br>क्या तुसेंगी सरकारी मदद चाहिदी ऐ?",
+
+    schemeTitle:"🌱 तुंदे लेई सरकारी योजना",
+    schemeName:"जनानियां लेई सरकारी मदद",
+    schemeDescription:"तुंदी जानकारी दे आधार उप्पर एह सरकारी सेवा तुंदे लेई ठीक होई सकदी ऐ।",
+
+    whoTitle:"किस लेई?",
+    whoText:"योग्य जनानियां लेई।",
+
+    benefitTitle:"केह् मिलग?",
+    benefitText:"सरकारी योजना दी मदद।",
+
+    documentTitle:"जरूरी कागज",
+    documentText:"पछान पत्र, बैंक खाता बगैरा।",
+
+    apply:"👉 आवेदन कियां करना?",
+
+    stepsTitle:"📝 कदम-कदम उप्पर आवेदन करो",
+    stepsDescription:"फिकर नेईं करो। हर कदम उप्पर मैं तुंदी मदद करांगा।",
+
+    step1Title:"सरकारी वेबसाइट खोलो",
+    step1Text:"हेठ दित्ता बटन दबाओ।",
+    step2Title:"आवेदन चुनो",
+    step2Text:"'Apply' बटन चुनो।",
+    step3Title:"अपनी जानकारी भरो",
+    step3Text:"नांऽ, मोबाइल नंबर ते जरूरी जानकारी भरो।",
+    step4Title:"कागज जमा करो",
+    step4Text:"जरूरी कागजां दी फोटो अपलोड करो।",
+    step5Title:"आवेदन जमा करो",
+    step5Text:"जानकारी चेक करियै Submit दबाओ।",
+
+    website:"🌐 सरकारी वेबसाइट खोलो",
+    complete:"✅ मैं पूरा करी लेआ",
+
+    successTitle:"बड़ा अच्छा! 🎉",
+    successText:"तुसें प्रक्रिया पूरी करी लेई ऐ। हुन तुस ऐसी सरकारी सेवाएं अपने इस्तेमाल करी सकदे ओ।"
+  },
+
+
+  sat: {
+    name:"संथाली",
+    speech:"sat-IN",
+
+    title:"आमाक सरकारी मदद साथी",
+    subtitle:"सरकारी योजना रेयाक बिसोय रे जानाम काते बोला आर बेंग।",
+
+    voice:"बोल एहोप ले माइक दबा",
+    placeholder:"नोडे बेंग...",
+    send:"पठा",
+
+    welcome:"जोहा 👋<br><br>इं <b>Sakhi AI</b>।<br>सरकारी योजना आर सेवा सरल ते बुझाव रे इं आमाक मददाय।<br><br>आम सरकारी मदद बाम?",
+    
+    schemeTitle:"🌱 आमाक लेल सरकारी योजना",
+    schemeName:"आयो ले सरकारी मदद",
+    schemeDescription:"आमाक जानकारी आधार रेयाक सरकारी सेवा आमाक लेल ठीक होय दाड़ेयाक।",
+
+    whoTitle:"ओको रे?",
+    whoText:"योग्य आयो को लेल।",
+
+    benefitTitle:"चेत् आम?",
+    benefitText:"सरकारी योजना रे मदद।",
+
+    documentTitle:"दोरकार कागोज",
+    documentText:"पहचान कागोज, बैंक खाता आदि।",
+
+    apply:"👉 आवेदन चेत् कराम?",
+
+    stepsTitle:"📝 कदम-कदम आवेदन",
+    stepsDescription:"चिंता आलोम। हर कदम रे इं आमाक मददाय।",
+
+    step1Title:"सरकारी वेबसाइट खोलाम",
+    step1Text:"नोडे बटन दबाम।",
+    step2Title:"आवेदन चुनाम",
+    step2Text:"'Apply' बटन चुनाम।",
+    step3Title:"आपना जानकारी बेंग",
+    step3Text:"नाम, मोबाइल नंबर आर जरूरी जानकारी बेंग।",
+    step4Title:"कागोज जमा कराम",
+    step4Text:"जरूरी कागोज रे फोटो अपलोड कराम।",
+    step5Title:"आवेदन जमा कराम",
+    step5Text:"जानकारी जांच करके Submit दबाम।",
+
+    website:"🌐 सरकारी वेबसाइट खोलाम",
+    complete:"✅ इं पूरा केदा",
+
+    successTitle:"बोहोत बुगिन! 🎉",
+    successText:"आम प्रक्रिया पूरा केदा। अब आम एना सरकारी सेवा आपनते इस्तेमाल दाड़ेयाक।"
+  },
+
+
+  sd: {
+    name:"سنڌي",
+    speech:"sd-IN",
+
+    title:"توهان جو سرڪاري مددگار",
+    subtitle:"سرڪاري منصوبن بابت ڄاڻڻ لاءِ ڳالهايو يا لکو.",
+
+    voice:"ڳالهائڻ لاءِ مائڪ دٻايو",
+    placeholder:"هتي لکو...",
+    send:"موڪليو",
+
+    welcome:"سلام 👋<br><br>مان <b>Sakhi AI</b> آهيان۔<br>مان توهان کي سرڪاري منصوبن ۽ خدمتن کي آساني سان سمجهڻ ۾ مدد ڪندس۔<br><br>ڇا توهان کي سرڪاري مدد گهرجي؟",
+
+    schemeTitle:"🌱 توهان لاءِ سرڪاري منصوبو",
+    schemeName:"عورتن لاءِ سرڪاري مدد",
+    schemeDescription:"توهان جي معلومات جي بنياد تي هي سرڪاري خدمت توهان لاءِ مناسب ٿي سگهي ٿي۔",
+
+    whoTitle:"ڪنهن لاءِ؟",
+    whoText:"اهل عورتن لاءِ۔",
+
+    benefitTitle:"ڇا ملندو؟",
+    benefitText:"سرڪاري منصوبي جي مدد۔",
+
+    documentTitle:"ضروري دستاويز",
+    documentText:"سڃاڻپ ڪارڊ، بئنڪ اڪائونٽ وغيره۔",
+
+    apply:"👉 درخواست ڪيئن ڏجي؟",
+
+    stepsTitle:"📝 قدم بہ قدم درخواست ڏيو",
+    stepsDescription:"فڪر نه ڪريو۔ مان هر قدم تي توهان جي مدد ڪندس۔",
+
+    step1Title:"سرڪاري ويب سائيٽ کوليو",
+    step1Text:"هيٺ ڏنل بٽڻ دٻايو۔",
+    step2Title:"درخواست چونڊيو",
+    step2Text:"'Apply' بٽڻ چونڊيو۔",
+    step3Title:"پنهنجي معلومات ڏيو",
+    step3Text:"نالو، موبائل نمبر ۽ گهربل معلومات ڏيو۔",
+    step4Title:"دستاويز جمع ڪريو",
+    step4Text:"ضروري دستاويزن جون تصويرون اپلوڊ ڪريو۔",
+    step5Title:"درخواست جمع ڪريو",
+    step5Text:"معلومات چيڪ ڪري Submit دٻايو۔",
+
+    website:"🌐 سرڪاري ويب سائيٽ کوليو",
+    complete:"✅ مون مڪمل ڪيو",
+
+    successTitle:"تمام سٺو! 🎉",
+    successText:"توهان عمل مڪمل ڪيو آهي۔ هاڻي توهان اهڙيون سرڪاري خدمتون پاڻ استعمال ڪري سگهو ٿا۔"
+  },
+
+
+  mni: {
+    name:"মেইতেই",
+    speech:"mni-IN",
+
+    title:"নহাক্কী সরকারী মদত পাংগল",
+    subtitle:"সরকারী স্কিমগী মতমদা খংনবগীদমক হায়বু নত্রগা ইয়া।",
+
+    voice:"হায়বা হৌনবগীদমক মাইক দবাকু",
+    placeholder:"মসিদা ইয়া...",
+    send:"পীবিয়ু",
+
+    welcome:"খুরুমজরী 👋<br><br>ঐগী <b>Sakhi AI</b>।<br>সরকারী স্কিম অমসুং সার্ভিস খংনবদা ঐ নহাকপু মদত পাংজরি।<br><br>নহাক্না সরকারী মদত পাম্ব্রা?",
+
+    schemeTitle:"🌱 নহাক্কী মখা পোন্না সরকারী স্কিম",
+    schemeName:"মহিলাগীদমক সরকারী মদত",
+    schemeDescription:"নহাক্কী তথ্যগী মখা পোন্না মসিগী সার্ভিস নহাক্কী অমা ওইবা য়াই।",
+
+    whoTitle:"কনাগীদমক?",
+    whoText:"যোগ্য মহিলাগীদমক।",
+
+    benefitTitle:"করিগুম্না ফংগনি?",
+    benefitText:"সরকারী স্কিমগী মদত।",
+
+    documentTitle:"দরকারগী ডকুমেন্ট",
+    documentText:"পরিচয় পত্র, ব্যাংক একাউন্ট অমসুং মখল মখল।",
+
+    apply:"👉 করিগুম্না আবেদন তৌগদগে?",
+
+    stepsTitle:"📝 মখল-মখলনা আবেদন তৌরো",
+    stepsDescription:"চিন্তা তৌনু। খুদিংগী স্টেপ্তা ঐ নহাকপু মদত পাংজরি।",
+
+    step1Title:"সরকারী ৱেবসাইট হাংউ",
+    step1Text:"মখাদা পীবা বাটন দবাকু।",
+    step2Title:"আবেদন খল্লু",
+    step2Text:"'Apply' বাটন খল্লু।",
+    step3Title:"নহাক্কী তথ্য পী",
+    step3Text:"মিং, মোবাইল নম্বর অমসুং দরকারগী তথ্য পী।",
+    step4Title:"ডকুমেন্ট পী",
+    step4Text:"দরকারগী ডকুমেন্টগী ফটো আপলোড তৌ।",
+    step5Title:"আবেদন পীবিয়ু",
+    step5Text:"তথ্য যেংদুনা Submit দবাকু।",
+
+    website:"🌐 সরকারী ৱেবসাইট হাংউ",
+    complete:"✅ ঐ মাংজৌরে",
+
+    successTitle:"ইয়াম্না ফজরে! 🎉",
+    successText:"নহাক্না প্রক্রিয়া মাংজৌরে। হায়রিবা সরকারী সার্ভিস অসিগী মখল নহাক্না মহাক্না তৌবা য়াগনি।"
+  },
+
+
+  sa: {
+    name:"संस्कृतम्",
+    speech:"sa-IN",
+
+    title:"भवतः सर्वकारीय-सहायकः",
+    subtitle:"सर्वकारीय-योजनानां विषये ज्ञातुं वदतु अथवा लिखतु।",
+
+    voice:"वक्तुं माइक्रोफोनं नुदतु",
+    placeholder:"अत्र लिखतु...",
+    send:"प्रेषयतु",
+
+    welcome:"नमः 👋<br><br>अहं <b>Sakhi AI</b> अस्मि।<br>सर्वकारीय-योजनाः सेवाः च सरलतया अवगन्तुं अहं भवतः साहाय्यं करिष्यामि।<br><br>भवते सर्वकारीय-साहाय्यं आवश्यकम् अस्ति किम्?",
+
+    schemeTitle:"🌱 भवतः कृते सर्वकारीय-योजना",
+    schemeName:"महिलाभ्यः सर्वकारीय-साहाय्यम्",
+    schemeDescription:"भवतः सूचनानुसारम् एषा सर्वकारीय-सेवा भवतः कृते उपयुक्ता भवेत्।",
+
+    whoTitle:"कस्य कृते?",
+    whoText:"योग्याभ्यः महिलाभ्यः।",
+
+    benefitTitle:"किं प्राप्यते?",
+    benefitText:"सर्वकारीय-योजनायाः साहाय्यम्।",
+
+    documentTitle:"आवश्यकानि पत्राणि",
+    documentText:"परिचयपत्रम्, बैंकखाता इत्यादि।",
+
+    apply:"👉 आवेदनं कथं करणीयम्?",
+
+    stepsTitle:"📝 क्रमशः आवेदनं कुर्मः",
+    stepsDescription:"चिन्ता मा कुरुत। प्रत्येकस्मिन् चरणे अहं भवतः साहाय्यं करिष्यामि।",
+
+    step1Title:"सर्वकारीय-जालस्थलं उद्घाटयतु",
+    step1Text:"अधः स्थितं बटनं नुदतु।",
+    step2Title:"आवेदनं चिनुत",
+    step2Text:"'Apply' इति बटनं चिनुत।",
+    step3Title:"स्वस्य सूचनां ददातु",
+    step3Text:"नाम, चलदूरवाणी-सङ्ख्यां आवश्यकसूचनां च ददातु।",
+    step4Title:"पत्राणि समर्पयतु",
+    step4Text:"आवश्यकपत्राणां चित्राणि अपलोड् करोतु।",
+    step5Title:"आवेदनं समर्पयतु",
+    step5Text:"सूचनां परीक्ष्य Submit नुदतु।",
+
+    website:"🌐 सर्वकारीय-जालस्थलं उद्घाटयतु",
+    complete:"✅ मया पूर्णम्",
+
+    successTitle:"अतीव शोभनम्! 🎉",
+    successText:"भवता प्रक्रिया पूर्णा कृता। अधुना भवान् एतादृशाः सर्वकारीय-सेवाः स्वयमेव उपयोक्तुं शक्नोति।"
+  }
+
+};
+
+
+/*
+==================================================
+ADD LANGUAGE OPTIONS
+==================================================
+*/
+
+const select =
+  document.getElementById("languageSelect");
+
+Object.keys(languages).forEach(code => {
+
+  const option =
+    document.createElement("option");
+
+  option.value = code;
+  option.textContent =
+    languages[code].name;
+
+  select.appendChild(option);
+
+});
+
+
+/*
+==================================================
+CURRENT LANGUAGE
+==================================================
+*/
+
+let currentLanguage = "hi";
+
+let lang = languages[currentLanguage];
+
+
+/*
+==================================================
+CHANGE LANGUAGE
+==================================================
+*/
+
+function changeLanguage() {
+
+  currentLanguage =
+    select.value;
+
+  lang =
+    languages[currentLanguage];
+
+  document.documentElement.lang =
+    currentLanguage;
+
+  updateUI();
+
+}
+
+
+/*
+==================================================
+UPDATE UI
+==================================================
+*/
+
+function updateUI() {
+
+  document.getElementById("title")
+    .innerHTML = lang.title;
+
+  document.getElementById("subtitle")
+    .innerHTML = lang.subtitle;
+
+  document.getElementById("voiceStatus")
+    .innerHTML = lang.voice;
+
+  document.getElementById("textInput")
+    .placeholder = lang.placeholder;
+
+  document.getElementById("sendButton")
+    .innerHTML = lang.send;
+
+  document.getElementById("schemeTitle")
+    .innerHTML = lang.schemeTitle;
+
+  document.getElementById("schemeName")
+    .innerHTML = lang.schemeName;
+
+  document.getElementById("schemeDescription")
+    .innerHTML = lang.schemeDescription;
+
+  document.getElementById("whoTitle")
+    .innerHTML = lang.whoTitle;
+
+  document.getElementById("whoText")
+    .innerHTML = lang.whoText;
+
+  document.getElementById("benefitTitle")
+    .innerHTML = lang.benefitTitle;
+
+  document.getElementById("benefitText")
+    .innerHTML = lang.benefitText;
+
+  document.getElementById("documentTitle")
+    .innerHTML = lang.documentTitle;
+
+  document.getElementById("documentText")
+    .innerHTML = lang.documentText;
+
+  document.getElementById("applyButton")
+    .innerHTML = lang.apply;
+
+  document.getElementById("stepsTitle")
+    .innerHTML = lang.stepsTitle;
+
+  document.getElementById("stepsDescription")
+    .innerHTML = lang.stepsDescription;
+
+  document.getElementById("step1Title")
+    .innerHTML = lang.step1Title;
+
+  document.getElementById("step1Text")
+    .innerHTML = lang.step1Text;
+
+  document.getElementById("step2Title")
+    .innerHTML = lang.step2Title;
+
+  document.getElementById("step2Text")
+    .innerHTML = lang.step2Text;
+
+  document.getElementById("step3Title")
+    .innerHTML = lang.step3Title;
+
+  document.getElementById("step3Text")
+    .innerHTML = lang.step3Text;
+
+  document.getElementById("step4Title")
+    .innerHTML = lang.step4Title;
+
+  document.getElementById("step4Text")
+    .innerHTML = lang.step4Text;
+
+  document.getElementById("step5Title")
+    .innerHTML = lang.step5Title;
+
+  document.getElementById("step5Text")
+    .innerHTML = lang.step5Text;
+
+  document.getElementById("websiteButton")
+    .innerHTML = lang.website;
+
+  document.getElementById("completeButton")
+    .innerHTML = lang.complete;
+
+  document.getElementById("successTitle")
+    .innerHTML = lang.successTitle;
+
+  document.getElementById("successText")
+    .innerHTML = lang.successText;
+
+  renderWelcome();
+
+}
+
+
+/*
+==================================================
+WELCOME MESSAGE
+==================================================
+*/
+
+function renderWelcome() {
+
+  const chat =
+    document.getElementById("chat");
+
+  chat.innerHTML = "";
+
+  addMessage(
+    lang.welcome,
+    "assistant",
+    false
+  );
+
+}
+
+
+/*
+==================================================
+ADD MESSAGE
+==================================================
+*/
+
+function addMessage(
+  text,
+  sender = "assistant",
+  shouldSpeak = true
+) {
+
+  const message =
+    document.createElement("div");
+
+  message.className =
+    "message " + sender;
+
+  const bubble =
+    document.createElement("div");
+
+  bubble.className =
+    "bubble";
+
+  bubble.innerHTML =
+    text;
+
+  message.appendChild(bubble);
+
+  document.getElementById("chat")
+    .appendChild(message);
+
+  document.getElementById("chat")
+    .scrollTop =
+    document.getElementById("chat").scrollHeight;
+
+  if (
+    sender === "assistant" &&
+    shouldSpeak
+  ) {
+
+    speak(
+      text.replace(/<[^>]*>/g,"")
+    );
+
+  }
+
+}
+
+
+/*
+==================================================
+SEND MESSAGE
+==================================================
+*/
+
+function sendMessage() {
+
+  const input =
+    document.getElementById("textInput");
+
+  const text =
+    input.value.trim();
+
+  if(!text)
+    return;
+
+  addMessage(
+    text,
+    "user",
+    false
+  );
+
+  input.value = "";
+
+  setTimeout(() => {
+
+    addMessage(
+      lang.schemeDescription +
+      "<br><br>" +
+      lang.apply,
+      "assistant"
+    );
+
+    showScheme();
+
+  },700);
+
+}
+
+
+/*
+==================================================
+VOICE RECOGNITION
+==================================================
+*/
+
+let recognition = null;
+
+function startListening() {
+
+  const SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+  if(!SpeechRecognition) {
+
+    alert(
+      "Voice recognition is not supported by this browser. Please use Google Chrome."
+    );
+
+    return;
+  }
+
+  recognition =
+    new SpeechRecognition();
+
+  recognition.lang =
+    lang.speech;
+
+  recognition.interimResults =
+    false;
+
+  recognition.maxAlternatives =
+    1;
+
+  const mic =
+    document.getElementById("micButton");
+
+  const status =
+    document.getElementById("voiceStatus");
+
+  mic.classList.add("listening");
+
+  status.innerText =
+    "🎧 ...";
+
+  recognition.start();
+
+
+  recognition.onresult =
+    function(event) {
+
+      const transcript =
+        event.results[0][0].transcript;
+
+      document.getElementById(
+        "textInput"
+      ).value = transcript;
+
+      status.innerText =
+        "✓";
+
+      mic.classList.remove(
+        "listening"
+      );
+
+      sendMessage();
+
+    };
+
+
+  recognition.onerror =
+    function() {
+
+      mic.classList.remove(
+        "listening"
+      );
+
+      status.innerText =
+        lang.voice;
+
+    };
+
+
+  recognition.onend =
+    function() {
+
+      mic.classList.remove(
+        "listening"
+      );
+
+    };
+
+}
+
+
+/*
+==================================================
+TEXT TO SPEECH
+==================================================
+*/
+
+function speak(text) {
+
+  if(!("speechSynthesis" in window))
+    return;
+
+  window.speechSynthesis.cancel();
+
+  const utterance =
+    new SpeechSynthesisUtterance(text);
+
+  utterance.lang =
+    lang.speech;
+
+  utterance.rate =
+    0.85;
+
+  utterance.pitch =
+    1;
+
+  window.speechSynthesis.speak(
+    utterance
+  );
+
+}
+
+
+/*
+==================================================
+SHOW SCHEME
+==================================================
+*/
+
+function showScheme() {
+
+  const card =
+    document.getElementById(
+      "schemeCard"
+    );
+
+  card.classList.remove(
+    "hidden"
+  );
+
+  card.scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+
+/*
+==================================================
+SHOW STEPS
+==================================================
+*/
+
+function showSteps() {
+
+  const card =
+    document.getElementById(
+      "stepsCard"
+    );
+
+  card.classList.remove(
+    "hidden"
+  );
+
+  card.scrollIntoView({
+    behavior:"smooth"
+  });
+
+  speak(
+    lang.stepsDescription
+  );
+
+}
+
+
+/*
+==================================================
+GOVERNMENT WEBSITE
+==================================================
+*/
+
+function openGovernmentSite() {
+
+  /*
+   * IMPORTANT:
+   * Replace this with the official
+   * scheme/service URL you choose.
+   */
+
+  window.open(
+    "https://www.india.gov.in/",
+    "_blank"
+  );
+
+}
+
+
+/*
+==================================================
+COMPLETE
+==================================================
+*/
+
+function completeApplication() {
+
+  const card =
+    document.getElementById(
+      "successCard"
+    );
+
+  card.classList.remove(
+    "hidden"
+  );
+
+  card.scrollIntoView({
+    behavior:"smooth"
+  });
+
+  speak(
+    lang.successText
+  );
+
+}
+
+
+/*
+==================================================
+INITIALIZE
+==================================================
+*/
+
+updateUI();
+
+</script>
+
+</body>
+</html>
